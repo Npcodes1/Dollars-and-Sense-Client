@@ -1,16 +1,11 @@
 import React from "react";
 
-function Contact() {
+function Signup() {
   return (
     <div>
       <section class="section-container">
         <div class="content-wrapper">
-          <h2 class="h2-title">GET IN TOUCH</h2>
-          <p>
-            For any questions, comments, or concerns, please don't hesitate to
-            reach out! I'd love to hear from you and I'll respond as soon as I
-            can. Thank you!
-          </p>
+          <h2 class="h2-title">SIGN UP</h2>
         </div>
 
         {/* <!-- Message Form --> */}
@@ -52,22 +47,46 @@ function Contact() {
               />
             </div>
 
-            {/* <!-- Message Box --> */}
+            {/* <!-- Phone Number --> */}
             <div class="form-details">
-              <label for="message">Message: </label>
-              <textarea
-                name="message"
-                id="message"
-                cols="40"
-                rows="10"
-                placeholder="Message"
-              ></textarea>
+              <label for="phone-number">Phone Number:</label>
+              <input
+                type="number"
+                name="phone-number"
+                id="phone-number"
+                placeholder="Phone Number"
+                required
+              />
+            </div>
+
+            {/* <!-- Username --> */}
+            <div class="form-details">
+              <label for="user-name">Username:</label>
+              <input
+                type="text"
+                name="user-name"
+                id="user-name"
+                placeholder="Username"
+                required
+              />
+            </div>
+
+            {/* <!-- Password --> */}
+            <div class="form-details">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
             </div>
 
             {/* <!-- Submit Button --> */}
             <div class="form-submit">
               <button class="btn" type="submit">
-                Send Message
+                Sign Up
               </button>
             </div>
           </div>
@@ -77,4 +96,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Signup;
