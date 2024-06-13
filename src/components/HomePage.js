@@ -29,6 +29,7 @@ function HomePage() {
                 <a
                   href="https://www.nar.realtor/research-and-statistics/research-reports/highlights-from-the-profile-of-home-buyers-and-sellers"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   1
                 </a>

@@ -114,6 +114,7 @@ function CreditScore() {
                 <a
                   href="https://www.fidelity.com/learning-center/smart-money/what-is-a-credit-score"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Information provided by Fidelity
                 </a>

@@ -11,7 +11,11 @@ function Footer() {
             </a>
             <ul className="footer-links">
               <li>
-                <a href="https://github.com/Npcodes1" target="_blank">
+                <a
+                  href="https://github.com/Npcodes1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {/* <i className="fa-brands fa-github"></i> */}
                 </a>
               </li>
@@ -19,6 +23,7 @@ function Footer() {
                 <a
                   href="https://www.linkedin.com/in/nicolepayneswe/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {/* <i className="fa-brands fa-linkedin"></i> */}
                 </a>
