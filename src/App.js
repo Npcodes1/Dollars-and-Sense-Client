@@ -20,7 +20,6 @@ function App() {
       <CreditScore />
       <Resources />
       <Login />
-      <Signup />
       {/* <Admin /> */}
       <Footer />
     </div>

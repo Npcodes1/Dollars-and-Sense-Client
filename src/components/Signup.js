@@ -3,17 +3,18 @@ import React from "react";
 function Signup() {
   return (
     <div>
-      <section class="section-container">
-        <div class="content-wrapper">
-          <h2 class="h2-title">SIGN UP</h2>
+      {/* Sign Up Form */}
+      <section className="section-container">
+        <div className="content-wrapper">
+          <h2 className="h2-title">SIGN UP</h2>
         </div>
 
-        {/* <!-- Message Form --> */}
-        <form action="#" method="post">
-          <div class="form-fields">
-            {/* <!-- First Name --> */}
-            <div class="form-details">
-              <label for="first-name">First Name:</label>
+        {/* Message Form */}
+        <form>
+          <div className="form-fields">
+            {/* First Name */}
+            <div className="form-details">
+              <label htmlFor="first-name">First Name:</label>
               <input
                 type="text"
                 name="first-name"
@@ -23,9 +24,9 @@ function Signup() {
               />
             </div>
 
-            {/* <!-- Last Name --> */}
-            <div class="form-details">
-              <label for="last-name">Last Name:</label>
+            {/* Last Name */}
+            <div className="form-details">
+              <label htmlFor="last-name">Last Name:</label>
               <input
                 type="text"
                 name="last-name"
@@ -35,9 +36,9 @@ function Signup() {
               />
             </div>
 
-            {/* <!-- Email --> */}
-            <div class="form-details">
-              <label for="last-name">Email:</label>
+            {/* Email */}
+            <div className="form-details">
+              <label htmlFor="last-name">Email:</label>
               <input
                 type="email"
                 name="email"
@@ -47,9 +48,9 @@ function Signup() {
               />
             </div>
 
-            {/* <!-- Phone Number --> */}
-            <div class="form-details">
-              <label for="phone-number">Phone Number:</label>
+            {/* Phone Number */}
+            <div className="form-details">
+              <label htmlFor="phone-number">Phone Number:</label>
               <input
                 type="number"
                 name="phone-number"
@@ -59,9 +60,9 @@ function Signup() {
               />
             </div>
 
-            {/* <!-- Username --> */}
-            <div class="form-details">
-              <label for="user-name">Username:</label>
+            {/* Username */}
+            <div className="form-details">
+              <label htmlFor="user-name">Username:</label>
               <input
                 type="text"
                 name="user-name"
@@ -71,9 +72,9 @@ function Signup() {
               />
             </div>
 
-            {/* <!-- Password --> */}
-            <div class="form-details">
-              <label for="password">Password:</label>
+            {/* Password */}
+            <div className="form-details">
+              <label htmlFor="password">Password:</label>
               <input
                 type="password"
                 name="password"
@@ -83,9 +84,9 @@ function Signup() {
               />
             </div>
 
-            {/* <!-- Submit Button --> */}
-            <div class="form-submit">
-              <button class="btn" type="submit">
+            {/* Submit Button */}
+            <div className="form-submit">
+              <button className="btn" type="submit">
                 Sign Up
               </button>
             </div>
