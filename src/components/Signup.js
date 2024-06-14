@@ -1,6 +1,6 @@
 import React from "react";
 
-function Signup() {
+function Signup({ user, setUser }) {
   return (
     <div>
       {/* Sign Up Form */}

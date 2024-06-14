@@ -1,4 +1,5 @@
 import React from "react";
+import Quiz from "./Quiz";
 
 function HomePage() {
   return (
@@ -59,85 +60,7 @@ function HomePage() {
             {/* Quiz */}
             <h3 className="h3-title">WONDERING IF THIS SITE IS FOR YOU?</h3>
             <h4 className="h4-title">TAKE THE QUIZ AND FIND OUT!</h4>
-            <form className="form">
-              <div className="form-questions-wrapper">
-                <ol>
-                  <li>
-                    Are you a minority that wants to buy a house someday?
-                    <div className="quiz-content">
-                      <input
-                        type="radio"
-                        className="answer"
-                        name="question1"
-                        value="yes"
-                        required
-                      />
-                      <label>Yes</label>
-                      <input
-                        type="radio"
-                        className="answer"
-                        name="question1"
-                        value="no"
-                        required
-                      />
-                      <label>No</label>
-                    </div>
-                  </li>
-                  <li>
-                    Can you currently afford to buy a house?
-                    <div className="quiz-content">
-                      <input
-                        type="radio"
-                        className="answer"
-                        name="question2"
-                        value="yes"
-                        required
-                      />
-                      <label>Yes</label>
-                      <input
-                        type="radio"
-                        className="answer"
-                        name="question2"
-                        value="no"
-                        required
-                      />
-                      <label>No</label>
-                    </div>
-                  </li>
-                  <li>
-                    Are you struggling with budgeting and saving?
-                    <div className="quiz-content">
-                      <input
-                        type="radio"
-                        className="answer"
-                        name="question3"
-                        value="yes"
-                        required
-                      />
-                      <label>Yes</label>
-                      <input
-                        type="radio"
-                        className="answer"
-                        name="question3"
-                        value="no"
-                        required
-                      />
-                      <label>No</label>
-                    </div>
-                  </li>
-                </ol>
-                {/* Submit Button */}
-                <div className="form-submit-quiz">
-                  <button className="form-btn btn" type="submit">
-                    Submit
-                  </button>
-                  <button className="form-btn clear-btn btn" type="submit">
-                    Clear
-                  </button>
-                </div>
-                <p id="quiz-results"></p>
-              </div>
-            </form>
+            <Quiz />
           </div>
         </section>
       </main>

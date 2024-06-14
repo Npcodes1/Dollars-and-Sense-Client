@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CreditScore() {
   return (
@@ -94,30 +95,32 @@ function CreditScore() {
             <div className="credit-score-container">
               {/* Request Credit Score Button */}
               <div className="form-submit">
-                <button
+                <Link
+                  to="https://www.annualcreditreport.com/requestReport/landingPage.action"
                   className="btn"
-                  src="https://www.annualcreditreport.com/requestReport/landingPage.action"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Request Credit Report
-                </button>
+                </Link>
               </div>
               {/* Credit Score Img */}
               <div className="content-image-wrapper">
                 <img
                   className="credit-progress"
                   src="./public/images/credit score.jpg"
-                  alt="credit-score-image"
+                  alt="credit-score"
                 />
               </div>
               {/* Cited Source */}
               <div className="resource-link">
-                <a
-                  href="https://www.fidelity.com/learning-center/smart-money/what-is-a-credit-score"
+                <Link
+                  to="https://www.fidelity.com/learning-center/smart-money/what-is-a-credit-score"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Information provided by Fidelity
-                </a>
+                </Link>
               </div>
             </div>
           </div>

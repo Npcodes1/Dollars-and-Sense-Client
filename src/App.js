@@ -1,26 +1,51 @@
-import React from "react";
+import { React, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./shared/Header";
-import HomePage from "./components/HomePage";
-import FinancialTracker from "./components/FinancialTracker";
+import BottomNavBar from "./shared/BottomNavBar";
+// import HomePage from "./components/HomePage";
+// import FinancialTracker from "./components/FinancialTracker";
 import CreditScore from "./components/CreditScore";
 import Resources from "./components/Resources";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-
+// import Contact from "./components/Contact";
+// import Profile from "./components/Profile";
+// import Login from "./components/Login";
+// import ForgotLogin from "./components/ForgotLogin";
+// import Signup from "./components/Signup";
+// import Admin from "./components/Admin";
+import PageNotFound from "./components/PageNotFound";
 import Footer from "./shared/Footer";
 
 // import Admin from "./components/Admin";
 
 function App() {
+  const [user, setUser] = useState(localStorage.getItem("user") || {});
+
   return (
     <div className="App">
-      <Header />
-      <HomePage />
-      <FinancialTracker />
-      <CreditScore />
-      <Resources />
-      <Login />
-      {/* <Admin /> */}
+      <Header user={user} setUser={setUser} />
+      <Routes>
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<BottomNavBar />} />
+        {/* <Route path="/tracker" element={<FinancialTracker />} /> */}
+        <Route path="/credit-score" element={<CreditScore />} />
+        <Route path="/resources" element={<Resources />} />
+        {/* <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/signup"
+          element={<Signup user={user} setUser={setUser} />}
+        />
+        <Route
+          path="/login"
+          element={<Login user={user} setUser={setUser} />}
+        />
+        <Route
+          path="/forgot-login"
+          element={<ForgotLogin user={user} setUser={setUser} />}
+        />
+        <Route path="/admin" element={<Admin />} /> */}
+        <Route path="/redirect" element={<PageNotFound />} />
+      </Routes>
       <Footer />
     </div>
   );

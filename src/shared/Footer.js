@@ -1,47 +1,63 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
+  // To add current year to copyright
+  let currentYear = new Date().getFullYear();
+
   return (
     <div>
       <footer>
         <section className="footer-container">
           <div className="social-media">
-            <a href="./contact.html">
+            {/* Links to Contact Page */}
+            <Link to="/contact">
               <h2 className="footer-h2-title">LET'S CONNECT!</h2>
-            </a>
+            </Link>
             <ul className="footer-links">
+              {/* GitHub */}
               <li>
-                <a
-                  href="https://github.com/Npcodes1"
+                <Link
+                  to="https://github.com/Npcodes1"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {/* <i className="fa-brands fa-github"></i> */}
-                </a>
+                </Link>
               </li>
+
+              {/* LinkedIn */}
               <li>
-                <a
-                  href="https://www.linkedin.com/in/nicolepayneswe/"
+                <Link
+                  to="https://www.linkedin.com/in/nicolepayneswe/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {/* <i className="fa-brands fa-linkedin"></i> */}
-                </a>
+                </Link>
               </li>
+
+              {/* Email */}
               <li>
-                <a href="mailto:nicole1rock@gmail.com">
+                <Link to="mailto:nicole1rock@gmail.com">
                   {/* <i className="fa-solid fa-envelope"></i> */}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
+
+          {/* Back to the Top Feature */}
           <div className="back-to-top">
-            <a href="#">
+            <Link to="/">
               {/* <i className="fa-solid fa-circle-arrow-up"></i> */}
-            </a>
+            </Link>
           </div>
+
+          {/* Copyright */}
           <div className="copyright-wrapper">
-            <span id="copyright"></span>
+            <span>
+              Copyright &copy; Nicole Payne {currentYear}. All Rights Reserved.
+            </span>
           </div>
         </section>
       </footer>

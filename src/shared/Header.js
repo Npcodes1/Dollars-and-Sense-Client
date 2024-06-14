@@ -1,42 +1,79 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 import BottomNavBar from "./BottomNavBar";
 
-function Header() {
+const url = "http://localhost:8080";
+
+function Header({ user, setUser }) {
+  //to navigate
+  const navigate = useNavigate();
+
+  //to handle logout
+  const handleLogout = () => {
+    fetch(`${url}/logout`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result); //print success message
+        setUser({}); //set user state to empty object
+        localStorage.removeItem("user"); //remove user from localStorage
+        navigate("/"); //navigate back to home
+      })
+      .catch((error) => {
+        console.log(error); //print error message
+        navigate("/"); //navigate back to home
+      });
+  };
   return (
     <div>
       <header className="top-header">
+        {/* Logo */}
         <div className="logo-container">
-          <a href="./index.html">
+          <Link to="/">
             <img
               src="./public/images/DOLLAR$ & $EN$E LOGO.png"
               alt="site-logo"
             />
-          </a>
+          </Link>
         </div>
+
+        {/* Navbar */}
         <nav className="navbar">
           <ul className="nav-links">
             <li>
-              <a href="./index.html">HOME</a>
+              <Link to="/">HOME</Link>
             </li>
             <li>
-              <a href="./financial-tracker.html">FINANCIAL TRACKER</a>
+              <Link to="/tracker">FINANCIAL TRACKER</Link>
             </li>
             <li>
-              <a href="./credit-score.html">CREDIT SCORE</a>
+              <Link to="/credit-score">CREDIT SCORE</Link>
             </li>
             <li>
-              <a href="./resources.html">RESOURCES</a>
+              <Link to="/resources">RESOURCES</Link>
             </li>
             <li>
-              <a href="./contact.html">CONTACT</a>
+              <Link to="/contact">CONTACT</Link>
             </li>
             <li>
-              <a href="./login.html">PROFILE</a>
+              {user.username ? (
+                <div>
+                  <Link to="/admin">ADMIN</Link>
+
+                  <a href="/" onClick={handleLogout}>
+                    LOGOUT
+                  </a>
+                </div>
+              ) : (
+                <Link to="/profile">PROFILE</Link>
+              )}
             </li>
           </ul>
         </nav>
       </header>
 
+      {/* Bottom Navbar- for mobile and tablet devices only */}
       <BottomNavBar />
 
       {/* Wave svg */}

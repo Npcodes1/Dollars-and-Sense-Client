@@ -1,7 +1,7 @@
 import React from "react";
 import Signup from "./Signup";
 
-function Login() {
+function Login({ user, setUser }) {
   return (
     <div>
       <main>
