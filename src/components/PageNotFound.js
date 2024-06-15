@@ -11,7 +11,7 @@ function PageNotFound() {
   };
 
   return (
-    <div>
+    <>
       <h1>Oh no! Page Not Found. Please Try Again Later.</h1>
       <img
         src="./img/page-not-found.jpg"
@@ -19,7 +19,7 @@ function PageNotFound() {
         width={600}
       />
       <button onClick={handleErrorRedirect}>Return Home</button>
-    </div>
+    </>
   );
 }
 

@@ -7,7 +7,7 @@ import PieChart from "./PieChart";
 
 function HomePage() {
   return (
-    <div>
+    <>
       <main>
         <section className="section-container">
           <div className="content-wrapper">
@@ -66,7 +66,7 @@ function HomePage() {
           </div>
         </section>
       </main>
-    </div>
+    </>
   );
 }
 

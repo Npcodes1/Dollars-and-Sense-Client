@@ -10,7 +10,7 @@ function Footer() {
   let currentYear = new Date().getFullYear();
 
   return (
-    <div>
+    <>
       <footer>
         <section className="footer-container">
           <div className="social-media">
@@ -67,7 +67,7 @@ function Footer() {
           </div>
         </section>
       </footer>
-    </div>
+    </>
   );
 }
 

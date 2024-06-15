@@ -5,7 +5,7 @@ import "../MediaQueries.css";
 
 function Resources() {
   return (
-    <div>
+    <>
       <main>
         <section className="section-container">
           <div className="content-wrapper">
@@ -85,7 +85,7 @@ function Resources() {
           </div>
         </section>
       </main>
-    </div>
+    </>
   );
 }
 

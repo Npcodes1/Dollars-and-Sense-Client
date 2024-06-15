@@ -1,11 +1,11 @@
 import { React, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./Header.css";
+import "./NavBar.css";
 import "./Pages.css";
 import "./Footer.css";
 import "./MediaQueries.css";
-import Header from "./shared/Header";
+import NavBar from "./shared/NavBar";
 import HomePage from "./components/HomePage";
 import FinancialTracker from "./components/FinancialTracker";
 import CreditScore from "./components/CreditScore";
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/tracker" element={<FinancialTracker />} />

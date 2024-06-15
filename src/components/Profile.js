@@ -1,14 +1,17 @@
 import React from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
+import Login from "./Login";
+import Signup from "./Signup";
 
 function Profile({ user, setUser }) {
   return (
-    <div>
+    <>
       <main>
-        <h1>Profile</h1>
+        <Login />
+        <Signup />
       </main>
-    </div>
+    </>
   );
 }
 

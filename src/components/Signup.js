@@ -4,7 +4,7 @@ import "../MediaQueries.css";
 
 function Signup({ user, setUser }) {
   return (
-    <div>
+    <>
       {/* Sign Up Form */}
       <section className="section-container">
         <div className="content-wrapper">
@@ -95,7 +95,7 @@ function Signup({ user, setUser }) {
           </div>
         </form>
       </section>
-    </div>
+    </>
   );
 }
 

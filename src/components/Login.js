@@ -1,11 +1,10 @@
 import React from "react";
-import Signup from "./Signup";
 import "../Pages.css";
 import "../MediaQueries.css";
 
 function Login({ user, setUser }) {
   return (
-    <div>
+    <>
       <main>
         <section className="section-container">
           <div className="content-wrapper">
@@ -55,13 +54,20 @@ function Login({ user, setUser }) {
                   </a>
                 </span>
               </div>
+              {/* Admin Users Redirect */}
+              <div className="form-link">
+                <span>
+                  Are you an Admin?
+                  <a className="forgot-login" href="./forgot-login.html">
+                    Forgot Username/Password
+                  </a>
+                </span>
+              </div>
             </div>
           </form>
         </section>
-
-        <Signup />
       </main>
-    </div>
+    </>
   );
 }
 

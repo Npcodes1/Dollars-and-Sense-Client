@@ -4,7 +4,7 @@ import "../MediaQueries.css";
 
 function FinancialTracker() {
   return (
-    <div>
+    <>
       <main>
         <section className="section-container">
           <div className="content-wrapper">
@@ -153,7 +153,7 @@ function FinancialTracker() {
           </div>
         </section>
       </main>
-    </div>
+    </>
   );
 }
 

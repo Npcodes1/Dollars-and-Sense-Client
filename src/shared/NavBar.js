@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../Header.css";
+import "../NavBar.css";
 import "../MediaQueries.css";
 
 const url = "http://localhost:8080";
 
-function Header({ user, setUser }) {
+function NavBar({ user, setUser }) {
   //to navigate
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ function Header({ user, setUser }) {
       });
   };
   return (
-    <div>
+    <>
       <header className="top-header">
         {/* Logo */}
         <div className="logo-container">
@@ -105,8 +105,8 @@ function Header({ user, setUser }) {
           d="M0,64L80,58.7C160,53,320,43,480,69.3C640,96,800,160,960,181.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         ></path>
       </svg>
-    </div>
+    </>
   );
 }
 
-export default Header;
+export default NavBar;

@@ -71,7 +71,7 @@
 //   clearBtn.addEventListener("click", resetBtn);
 
 //   return (
-//     <div>
+//     <>
 //       <form className="form" onSubmit={handleQuiz}>
 //         <div className="form-questions-wrapper">
 //           <ol>
@@ -157,7 +157,7 @@
 //           <p id="quiz-results"></p>
 //         </div>
 //       </form>
-//     </div>
+//     </>
 //   );
 // }
 

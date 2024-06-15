@@ -4,7 +4,7 @@ import "../MediaQueries.css";
 
 function Contact() {
   return (
-    <div>
+    <>
       <main>
         <section className="section-container">
           <div className="content-wrapper">
@@ -77,7 +77,7 @@ function Contact() {
           </form>
         </section>
       </main>
-    </div>
+    </>
   );
 }
 

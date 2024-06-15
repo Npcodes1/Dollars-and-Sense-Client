@@ -5,7 +5,7 @@ import "../MediaQueries.css";
 
 function CreditScore() {
   return (
-    <div>
+    <>
       <main>
         <section className="section-container margin-space">
           <div className="content-wrapper">
@@ -128,7 +128,7 @@ function CreditScore() {
           </div>
         </section>
       </main>
-    </div>
+    </>
   );
 }
 

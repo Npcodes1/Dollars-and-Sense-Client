@@ -1,10 +1,11 @@
 import React from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
+import { Link } from "react-router-dom";
 
 function ForgotLogin() {
   return (
-    <div>
+    <>
       <main>
         <section className="section-container">
           <div className="content-wrapper">
@@ -34,9 +35,9 @@ function ForgotLogin() {
               <div className="form-link">
                 <span>
                   Remembered your login?
-                  <a className="login" href="./login.html">
+                  <Link to="/login" className="login">
                     Login
-                  </a>
+                  </Link>
                 </span>
               </div>
 
@@ -50,7 +51,7 @@ function ForgotLogin() {
           </form>
         </section>
       </main>
-    </div>
+    </>
   );
 }
 
