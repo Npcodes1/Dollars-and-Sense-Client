@@ -1,5 +1,9 @@
 import React from "react";
-import Quiz from "./Quiz";
+
+import "../Pages.css";
+import "../MediaQueries.css";
+// import Quiz from "./Quiz";
+import PieChart from "./PieChart";
 
 function HomePage() {
   return (
@@ -43,9 +47,7 @@ function HomePage() {
               <li>Now that age has risen to 36 years old.</li>
             </ul>
             {/* To add the pie chart to the page. It's wrapped in a div container for responsiveness. */}
-            <div className="pie-container">
-              <canvas id="pieChart"></canvas>
-            </div>
+            <PieChart />
             <p>
               Our goal is aimed to providing helpful resources that will aid
               first-time minority buyers learn financial literacy for when it
@@ -60,7 +62,7 @@ function HomePage() {
             {/* Quiz */}
             <h3 className="h3-title">WONDERING IF THIS SITE IS FOR YOU?</h3>
             <h4 className="h4-title">TAKE THE QUIZ AND FIND OUT!</h4>
-            <Quiz />
+            {/* <Quiz /> */}
           </div>
         </section>
       </main>

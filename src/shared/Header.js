@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import BottomNavBar from "./BottomNavBar";
+import "../Header.css";
+import "../MediaQueries.css";
 
 const url = "http://localhost:8080";
 
@@ -31,10 +32,7 @@ function Header({ user, setUser }) {
         {/* Logo */}
         <div className="logo-container">
           <Link to="/">
-            <img
-              src="./public/images/DOLLAR$ & $EN$E LOGO.png"
-              alt="site-logo"
-            />
+            <img src="./img/DOLLAR$ & $EN$E LOGO.png" alt="site-logo" />
           </Link>
         </div>
 
@@ -73,8 +71,31 @@ function Header({ user, setUser }) {
         </nav>
       </header>
 
-      {/* Bottom Navbar- for mobile and tablet devices only */}
-      <BottomNavBar />
+      {/* Bottom Navigation Bar- for mobile and tablet devices only */}
+      <header className="bottom-header">
+        <nav className="navbar-bottom">
+          <Link to="/" className="nav-links-bottom">
+            <i className="fa-solid fa-house"></i>
+            <span className="nav-text">Home</span>
+          </Link>
+          <Link to="/tracker" className="nav-links-bottom">
+            <i className="fa-solid fa-coins"></i>
+            <span className="nav-text">Financial Tracker</span>
+          </Link>
+          <Link to="/credit-score" className="nav-links-bottom">
+            <i className="fa-solid fa-building-columns"></i>
+            <span className="nav-text">Credit Score</span>
+          </Link>
+          <Link to="/resources" className="nav-links-bottom">
+            <i className="fa-solid fa-book"></i>
+            <span className="nav-text">Resources</span>
+          </Link>
+          <Link to="/profile" className="nav-links-bottom">
+            <i className="fa-solid fa-user"></i>
+            <span className="nav-text">Profile</span>
+          </Link>
+        </nav>
+      </header>
 
       {/* Wave svg */}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1440 250">

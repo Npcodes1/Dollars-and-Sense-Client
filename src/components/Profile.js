@@ -1,4 +1,6 @@
 import React from "react";
+import "../Pages.css";
+import "../MediaQueries.css";
 
 function Profile({ user, setUser }) {
   return (

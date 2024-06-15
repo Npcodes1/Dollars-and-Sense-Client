@@ -1,5 +1,7 @@
 // import React, { useState, useEffect } from "react";
 // // import users from "../data/signUpData";
+// import "../Pages.css";
+// import "../MediaQueries.css";
 
 // function Admin() {
 //   // to hold data for users

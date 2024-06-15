@@ -1,5 +1,7 @@
 import React from "react";
 import Signup from "./Signup";
+import "../Pages.css";
+import "../MediaQueries.css";
 
 function Login({ user, setUser }) {
   return (

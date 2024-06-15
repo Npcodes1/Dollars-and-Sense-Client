@@ -1,4 +1,6 @@
 import React from "react";
+import "../Pages.css";
+import "../MediaQueries.css";
 
 function FinancialTracker() {
   return (
@@ -29,6 +31,8 @@ function FinancialTracker() {
                     <option value="miscellaneous">Miscellaneous</option>
                   </select>
                 </div>
+
+                {/*  */}
 
                 {/* Date */}
                 <div className="transactions">

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../Pages.css";
+import "../MediaQueries.css";
 
 function CreditScore() {
   return (
@@ -108,7 +110,7 @@ function CreditScore() {
               <div className="content-image-wrapper">
                 <img
                   className="credit-progress"
-                  src="./public/images/credit score.jpg"
+                  src="./img/credit score.jpg"
                   alt="credit-score"
                 />
               </div>

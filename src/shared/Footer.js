@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../Footer.css";
+import "../MediaQueries.css";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faGithub, faLinkedin }
 
 function Footer() {
   // To add current year to copyright
@@ -23,6 +27,7 @@ function Footer() {
                   rel="noopener noreferrer"
                 >
                   {/* <i className="fa-brands fa-github"></i> */}
+                  {/* <FontAwesomeIcon icon={faGithub} /> */}
                 </Link>
               </li>
 
@@ -34,6 +39,7 @@ function Footer() {
                   rel="noopener noreferrer"
                 >
                   {/* <i className="fa-brands fa-linkedin"></i> */}
+                  {/* <FontAwesomeIcon icon={faLinkedin} /> */}
                 </Link>
               </li>
 

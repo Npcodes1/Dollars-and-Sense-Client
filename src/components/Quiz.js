@@ -1,4 +1,7 @@
 // import React, { useState } from "react";
+// import "../Quiz.css"
+// import "../Pages.css";
+// import "../MediaQueries.css";
 
 // function Quiz() {
 //   //To keep score. Initial score is 0.

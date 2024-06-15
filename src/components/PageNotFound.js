@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../Pages.css";
+import "../MediaQueries.css";
 
 function PageNotFound() {
   const navigate = useNavigate();
