@@ -60,10 +60,8 @@ function Footer() {
           </div>
 
           {/* Back to the Top Feature */}
-          <div className="back-to-top">
-            <div onClick={goToTop}>
-              <FontAwesomeIcon icon={faCircleArrowUp} />
-            </div>
+          <div className="back-to-top" onClick={goToTop}>
+            <FontAwesomeIcon icon={faCircleArrowUp} />
           </div>
 
           {/* Copyright */}

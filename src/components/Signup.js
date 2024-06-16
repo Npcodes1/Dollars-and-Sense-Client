@@ -3,13 +3,13 @@ import "../Pages.css";
 import "../MediaQueries.css";
 import { useNavigate } from "react-router-dom";
 
-const url = "http://localhost:8080/api";
+const url = "http://localhost:8080";
 
 function Signup({ user, setUser }) {
   const navigate = useNavigate();
 
   const handleSignupForm = (e) => {
-    e.prevent.Default(); //to test that the console logs are working
+    // e.prevent.Default(); //to test that the console logs are working
     //print message that the form submitted
     console.log("The form is working!");
 
@@ -17,6 +17,7 @@ function Signup({ user, setUser }) {
     const body = {
       firstName: e.target.firstName.value,
       lastName: e.target.lastName.value,
+      email: e.target.email.value,
       username: e.target.username.value,
       password: e.target.password.value,
     };
@@ -25,7 +26,7 @@ function Signup({ user, setUser }) {
     console.log(body);
 
     //connect to backend to post data
-    fetch(`${url}/signup`, {
+    fetch(`${url}/api/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +36,8 @@ function Signup({ user, setUser }) {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        localStorage.setItem("user", JSON.stringify(result.data));
+        setUser(user);
+        // localStorage.setItem("user", JSON.stringify(result.data));
         navigate("/");
       })
       .catch((error) => console.log(error));
@@ -85,7 +87,7 @@ function Signup({ user, setUser }) {
               />
             </div>
             {/* Phone Number */}
-            <div className="form-details">
+            {/* <div className="form-details">
               <label htmlFor="phoneNumber">Phone Number:</label>
               <input
                 type="number"
@@ -94,7 +96,7 @@ function Signup({ user, setUser }) {
                 placeholder="Phone Number"
                 required
               />
-            </div>
+            </div> */}
             {/* Username */}
             <div className="form-details">
               <label htmlFor="username">Username:</label>

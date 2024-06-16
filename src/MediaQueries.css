@@ -32,10 +32,6 @@
   }
 
   /* Contact Form */
-  .form-details label {
-    text-align: left;
-  }
-
   .form-details input {
     flex-basis: 100px;
   }
@@ -57,11 +53,6 @@
   }
 
   /* Back to Top button */
-  .back-to-top a {
-    right: 1rem;
-    bottom: 0.5rem;
-    font-size: 1.8rem;
-  }
 
   /* Forgot Login */
   .forgot-login-container {
@@ -73,7 +64,6 @@
   .transactions-container {
     max-width: 100%;
   }
-
   .table th,
   .table td {
     font-size: 0.9em;
@@ -83,12 +73,6 @@
   .btn {
     padding: 4px 8px;
     font-size: 0.8em;
-  }
-
-  /* Pie Chart Container */
-  .pie-container {
-    width: 100%;
-    height: 100%;
   }
 }
 
@@ -116,9 +100,9 @@
     text-align: left;
   }
 
-  /* To shift labels in contact form to the left */
+  /* Contact Form  */
   .form-fields label {
-    text-align: left;
+    text-align: right;
   }
 
   .form-submit .login {
@@ -139,12 +123,6 @@
   .btn {
     padding: 4px 8px;
     font-size: 0.8em;
-  }
-
-  /* Pie Chart Container */
-  .pie-container {
-    width: 80%;
-    height: 80%;
   }
 }
 
@@ -169,6 +147,11 @@
     display: none;
   }
 
+  /* Contact Form */
+  .form-details label {
+    text-align: right;
+  }
+
   /* Quiz */
   .form-questions-wrapper {
     margin: auto;
@@ -190,6 +173,11 @@
   /* Hiding bottom navigation bar when in laptop size. */
   .bottom-header {
     display: none;
+  }
+
+  /* Contact Form */
+  .form-details label {
+    text-align: right;
   }
 
   /* Financial Tracker */

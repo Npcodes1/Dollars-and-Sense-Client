@@ -1,10 +1,5 @@
 import { React, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
-import "./NavBar.css";
-import "./Pages.css";
-import "./Footer.css";
-import "./MediaQueries.css";
 import NavBar from "./shared/NavBar";
 import HomePage from "./components/HomePage";
 import FinancialTracker from "./components/FinancialTracker";
@@ -18,6 +13,10 @@ import Signup from "./components/Signup";
 import Admin from "./components/Admin";
 import PageNotFound from "./components/PageNotFound";
 import Footer from "./shared/Footer";
+import "./NavBar.css";
+import "./Pages.css";
+import "./Footer.css";
+import "./MediaQueries.css";
 
 // import Admin from "./components/Admin";
 

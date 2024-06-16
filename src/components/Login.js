@@ -2,11 +2,17 @@ import React from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
 import { Link, useNavigate } from "react-router-dom";
+// import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 
-const url = "http://localhost:8080/api";
+const url = "http://localhost:8080";
 
 function Login({ user, setUser }) {
+  //To navigate to other pages
   const navigate = useNavigate();
+
+  //change state of user and profile
+  // const [profile, setProfile] = useState([]);
+
   const handleLoginForm = (e) => {
     //prevent default refreshing
     e.preventDefault();
@@ -25,7 +31,7 @@ function Login({ user, setUser }) {
     console.log(body.password);
 
     //need to send/post the data to the backend
-    fetch(`${url}/login/local`, {
+    fetch(`${url}/api/login/local`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,6 +46,25 @@ function Login({ user, setUser }) {
       })
       .catch((error) => console.log(error));
   };
+
+  //to get to authorization pages for Google and GitHub
+  // const login = useGoogleLogin({
+  //   onSuccess: (codeResponse) => setUser(codeResponse),
+  //   onError: (error) => console.log("Login Failed", error),
+  // });
+
+  // useEffect(() => {
+  //   fetch(`${url}/auth/google`, {
+  //     method: "GET",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       navigate("/");
+  //       setUser(user);
+  //     })
+  //     .catch((error) => console.log(error));
+  // });
 
   return (
     <>
@@ -72,7 +97,7 @@ function Login({ user, setUser }) {
                   name="password"
                   id="password"
                   placeholder="Password"
-                  required
+                  // required
                 />
               </div>
 
@@ -82,6 +107,11 @@ function Login({ user, setUser }) {
                   Login
                 </button>
               </div>
+              {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
+
+              {/* <button className="auth-btn" type="submit">
+                Sign in with GitHub
+              </button> */}
 
               {/* Forgot Username/Password */}
               <div className="form-link">

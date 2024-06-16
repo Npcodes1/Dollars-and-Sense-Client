@@ -17,7 +17,7 @@ function Admin() {
   //To get Users
   useEffect(() => {
     //Get Request to get all users
-    fetch(`${url}/admin/users`, {
+    fetch(`${url}/auth/admin/users`, {
       method: "GET",
     })
       //if successful, show the users and if not, show an error
