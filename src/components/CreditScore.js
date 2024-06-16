@@ -97,14 +97,14 @@ function CreditScore() {
             <div className="credit-score-container">
               {/* Request Credit Score Button */}
               <div className="form-submit">
-                <Link
-                  to="https://www.annualcreditreport.com/requestReport/landingPage.action"
+                <button
+                  href="https://www.annualcreditreport.com/requestReport/landingPage.action"
                   className="btn"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Request Credit Report
-                </Link>
+                </button>
               </div>
               {/* Credit Score Img */}
               <div className="content-image-wrapper">

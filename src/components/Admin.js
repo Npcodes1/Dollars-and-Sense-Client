@@ -158,7 +158,7 @@ function Admin() {
         <section className="section-container">
           <div className="content-wrapper">
             {/* Messages Data */}
-            <h2 className="h2">Messages</h2>
+            <h2>Messages</h2>
             <table className="table">
               <thead className="table-heading">
                 <tr>

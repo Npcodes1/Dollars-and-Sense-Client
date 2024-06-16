@@ -1,13 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import "../Footer.css";
 import "../MediaQueries.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faGithub, faLinkedin }
 
 function Footer() {
   // To add current year to copyright
   let currentYear = new Date().getFullYear();
+
+  // For back to top button functionality
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -26,8 +35,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* <i className="fa-brands fa-github"></i> */}
-                  {/* <FontAwesomeIcon icon={faGithub} /> */}
+                  <FontAwesomeIcon icon={faGithub} />
                 </Link>
               </li>
 
@@ -38,15 +46,14 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* <i className="fa-brands fa-linkedin"></i> */}
-                  {/* <FontAwesomeIcon icon={faLinkedin} /> */}
+                  <FontAwesomeIcon icon={faLinkedin} />
                 </Link>
               </li>
 
               {/* Email */}
               <li>
                 <Link to="mailto:nicole1rock@gmail.com">
-                  {/* <i className="fa-solid fa-envelope"></i> */}
+                  <FontAwesomeIcon icon={faEnvelope} />
                 </Link>
               </li>
             </ul>
@@ -54,9 +61,9 @@ function Footer() {
 
           {/* Back to the Top Feature */}
           <div className="back-to-top">
-            <Link to="/">
-              {/* <i className="fa-solid fa-circle-arrow-up"></i> */}
-            </Link>
+            <div onClick={goToTop}>
+              <FontAwesomeIcon icon={faCircleArrowUp} />
+            </div>
           </div>
 
           {/* Copyright */}

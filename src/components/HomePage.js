@@ -2,7 +2,7 @@ import React from "react";
 
 import "../Pages.css";
 import "../MediaQueries.css";
-// import Quiz from "./Quiz";
+import Quiz from "./Quiz";
 import PieChart from "./PieChart";
 
 function HomePage() {
@@ -62,7 +62,7 @@ function HomePage() {
             {/* Quiz */}
             <h3 className="h3-title">WONDERING IF THIS SITE IS FOR YOU?</h3>
             <h4 className="h4-title">TAKE THE QUIZ AND FIND OUT!</h4>
-            {/* <Quiz /> */}
+            <Quiz />
           </div>
         </section>
       </main>

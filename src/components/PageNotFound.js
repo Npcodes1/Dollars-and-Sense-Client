@@ -12,13 +12,23 @@ function PageNotFound() {
 
   return (
     <>
-      <h1>Oh no! Page Not Found. Please Try Again Later.</h1>
-      <img
-        src="./img/page-not-found.jpg"
-        alt="Sad puppy with a error requesting page method."
-        width={600}
-      />
-      <button onClick={handleErrorRedirect}>Return Home</button>
+      <section className="section-container">
+        <div className="content-wrapper">
+          <h1 className="page-error">
+            Oh no! Page Could Not Be Found. Please Try Again Later.
+          </h1>
+          <img
+            className="page-error-img"
+            src="./img/page-not-found.jpg"
+            alt="Sad puppy with a error requesting page method."
+          />
+          <div className="page-error-btn">
+            <button className="btn" onClick={handleErrorRedirect}>
+              Return Home
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

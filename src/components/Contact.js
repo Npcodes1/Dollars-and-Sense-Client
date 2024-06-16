@@ -1,8 +1,45 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../Pages.css";
 import "../MediaQueries.css";
 
+const url = "http://localhost:8080";
+
 function Contact() {
+  const navigate = useNavigate();
+
+  const handleContactForm = (e) => {
+    // e.prevent.Default(); //to test that the console logs are working
+    //print message that the form submitted
+    console.log("The form is working!");
+
+    //create sends variable to hold the submitted sign up form information
+    const body = {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+
+    //print values in console to check it's working
+    console.log(body);
+
+    //connect to backend to post data
+    fetch(`${url}/api/contact/send`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <main>
@@ -17,15 +54,15 @@ function Contact() {
           </div>
 
           {/* Message Form */}
-          <form>
+          <form onSubmit={handleContactForm}>
             <div className="form-fields">
               {/* First Name */}
               <div className="form-details">
-                <label htmlFor="first-name">First Name:</label>
+                <label htmlFor="firstName">First Name:</label>
                 <input
                   type="text"
-                  name="first-name"
-                  id="first-name"
+                  name="firstName"
+                  id="firstName"
                   placeholder="First Name"
                   required
                 />
@@ -33,11 +70,11 @@ function Contact() {
 
               {/* Last Name */}
               <div className="form-details">
-                <label htmlFor="last-name">Last Name:</label>
+                <label htmlFor="lastName">Last Name:</label>
                 <input
                   type="text"
-                  name="last-name"
-                  id="last-name"
+                  name="lastName"
+                  id="lastName"
                   placeholder="Last Name"
                   required
                 />
@@ -45,7 +82,7 @@ function Contact() {
 
               {/* Email */}
               <div className="form-details">
-                <label htmlFor="last-name">Email:</label>
+                <label htmlFor="lastName">Email:</label>
                 <input
                   type="email"
                   name="email"
@@ -64,6 +101,7 @@ function Contact() {
                   cols="40"
                   rows="10"
                   placeholder="Message"
+                  required
                 ></textarea>
               </div>
 

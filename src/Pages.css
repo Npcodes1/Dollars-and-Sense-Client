@@ -1,8 +1,7 @@
 /* Demographics Pie Chart */
 .pie-container {
-  min-width: 35vw;
-  max-width: 40vw;
-  height: auto;
+  width: 60%;
+  height: 60%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -246,4 +245,18 @@
 .h2-centered {
   text-align: center;
   font-size: 1.2rem;
+}
+
+/* Page Not Found */
+.page-error {
+  text-align: center;
+}
+
+.page-error-img {
+  width: 100%;
+}
+
+.page-error-btn {
+  text-align: center;
+  margin-top: 1rem;
 }

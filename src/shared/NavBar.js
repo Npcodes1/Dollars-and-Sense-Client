@@ -2,6 +2,14 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../NavBar.css";
 import "../MediaQueries.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHouse,
+  faCoins,
+  faBuildingColumns,
+  faBook,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 const url = "http://localhost:8080";
 
@@ -75,23 +83,23 @@ function NavBar({ user, setUser }) {
       <header className="bottom-header">
         <nav className="navbar-bottom">
           <Link to="/" className="nav-links-bottom">
-            <i className="fa-solid fa-house"></i>
+            <FontAwesomeIcon icon={faHouse} />
             <span className="nav-text">Home</span>
           </Link>
           <Link to="/tracker" className="nav-links-bottom">
-            <i className="fa-solid fa-coins"></i>
+            <FontAwesomeIcon icon={faCoins} />
             <span className="nav-text">Financial Tracker</span>
           </Link>
           <Link to="/credit-score" className="nav-links-bottom">
-            <i className="fa-solid fa-building-columns"></i>
+            <FontAwesomeIcon icon={faBuildingColumns} />
             <span className="nav-text">Credit Score</span>
           </Link>
           <Link to="/resources" className="nav-links-bottom">
-            <i className="fa-solid fa-book"></i>
+            <FontAwesomeIcon icon={faBook} />
             <span className="nav-text">Resources</span>
           </Link>
           <Link to="/profile" className="nav-links-bottom">
-            <i className="fa-solid fa-user"></i>
+            <FontAwesomeIcon icon={faUser} />
             <span className="nav-text">Profile</span>
           </Link>
         </nav>

@@ -29,6 +29,10 @@ function PieChart() {
         data: [81, 7, 7, 6, 6],
       },
     ],
+    options: {
+      responsive: true,
+      maintainAspectRation: false,
+    },
   };
 
   /* To add the pie chart to the page. It's wrapped in a div container for responsiveness. */

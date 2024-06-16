@@ -1,8 +1,46 @@
 import React from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
+import { Link, useNavigate } from "react-router-dom";
+
+const url = "http://localhost:8080/api";
 
 function Login({ user, setUser }) {
+  const navigate = useNavigate();
+  const handleLoginForm = (e) => {
+    //prevent default refreshing
+    e.preventDefault();
+
+    //print success message
+    console.log("The form is working!");
+
+    //use body variable to hold data that's submitted
+    const body = {
+      username: e.target.username.value,
+      password: e.target.username.value,
+    };
+
+    //print the value of each input using its name attribute
+    console.log(body.username);
+    console.log(body.password);
+
+    //need to send/post the data to the backend
+    fetch(`${url}/login/local`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        localStorage.setItem("user", JSON.stringify(result.data));
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <main>
@@ -12,15 +50,15 @@ function Login({ user, setUser }) {
           </div>
 
           {/* Login Form */}
-          <form action="#" method="post">
+          <form onSubmit={handleLoginForm}>
             <div className="form-fields">
               {/* Username */}
               <div className="form-details">
-                <label htmlFor="user-name">Username:</label>
+                <label htmlFor="username">Username:</label>
                 <input
                   type="text"
-                  name="user-name"
-                  id="user-name"
+                  name="username"
+                  id="username"
                   placeholder="Username"
                   required
                 />
@@ -49,18 +87,14 @@ function Login({ user, setUser }) {
               <div className="form-link">
                 <span>
                   Already have an account but can't login?
-                  <a className="forgot-login" href="./forgot-login.html">
-                    Forgot Username/Password
-                  </a>
+                  <Link to="/forgot-login"> Forgot Username/Password</Link>
                 </span>
               </div>
               {/* Admin Users Redirect */}
               <div className="form-link">
                 <span>
-                  Are you an Admin?
-                  <a className="forgot-login" href="./forgot-login.html">
-                    Forgot Username/Password
-                  </a>
+                  Are you an Admin? Login to your account here:
+                  <Link to="/admin"> Admin</Link>
                 </span>
               </div>
             </div>

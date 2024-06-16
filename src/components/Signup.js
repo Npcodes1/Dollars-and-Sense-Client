@@ -1,46 +1,81 @@
 import React from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
+import { useNavigate } from "react-router-dom";
+
+const url = "http://localhost:8080/api";
 
 function Signup({ user, setUser }) {
+  const navigate = useNavigate();
+
+  const handleSignupForm = (e) => {
+    e.prevent.Default(); //to test that the console logs are working
+    //print message that the form submitted
+    console.log("The form is working!");
+
+    //create body variable to hold the submitted sign up form information
+    const body = {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      username: e.target.username.value,
+      password: e.target.password.value,
+    };
+
+    //print values in console to check it's working
+    console.log(body);
+
+    //connect to backend to post data
+    fetch(`${url}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        localStorage.setItem("user", JSON.stringify(result.data));
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
-      {/* Sign Up Form */}
       <section className="section-container">
         <div className="content-wrapper">
           <h2 className="h2-title">SIGN UP</h2>
         </div>
 
-        {/* Message Form */}
-        <form>
+        {/* Sign Up Form */}
+        <form onSubmit={handleSignupForm}>
           <div className="form-fields">
             {/* First Name */}
             <div className="form-details">
-              <label htmlFor="first-name">First Name:</label>
+              <label htmlFor="firstName">First Name:</label>
               <input
                 type="text"
-                name="first-name"
-                id="first-name"
+                name="firstName"
+                id="firstName"
                 placeholder="First Name"
                 required
               />
             </div>
-
             {/* Last Name */}
             <div className="form-details">
-              <label htmlFor="last-name">Last Name:</label>
+              <label htmlFor="lastName">Last Name:</label>
               <input
                 type="text"
-                name="last-name"
-                id="last-name"
+                name="lastName"
+                id="lastName"
                 placeholder="Last Name"
                 required
               />
             </div>
-
             {/* Email */}
             <div className="form-details">
-              <label htmlFor="last-name">Email:</label>
+              <label htmlFor="email">Email:</label>
               <input
                 type="email"
                 name="email"
@@ -49,31 +84,28 @@ function Signup({ user, setUser }) {
                 required
               />
             </div>
-
             {/* Phone Number */}
             <div className="form-details">
-              <label htmlFor="phone-number">Phone Number:</label>
+              <label htmlFor="phoneNumber">Phone Number:</label>
               <input
                 type="number"
-                name="phone-number"
-                id="phone-number"
+                name="phoneNumber"
+                id="phoneNumber"
                 placeholder="Phone Number"
                 required
               />
             </div>
-
             {/* Username */}
             <div className="form-details">
-              <label htmlFor="user-name">Username:</label>
+              <label htmlFor="username">Username:</label>
               <input
                 type="text"
-                name="user-name"
-                id="user-name"
+                name="username"
+                id="username"
                 placeholder="Username"
                 required
               />
             </div>
-
             {/* Password */}
             <div className="form-details">
               <label htmlFor="password">Password:</label>
@@ -85,7 +117,6 @@ function Signup({ user, setUser }) {
                 required
               />
             </div>
-
             {/* Submit Button */}
             <div className="form-submit">
               <button className="btn" type="submit">

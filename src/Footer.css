@@ -54,7 +54,7 @@
   font-size: 0.9rem;
 }
 
-.back-to-top a {
+.back-to-top div {
   color: var(--almond);
   text-decoration: none;
   font-size: 2.5rem;
@@ -63,6 +63,6 @@
   bottom: 1.5rem;
 }
 
-.back-to-top a:hover {
+.back-to-top div:hover {
   color: var(--cinereous-ashy-grey);
 }
