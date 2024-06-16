@@ -131,7 +131,7 @@ function FinancialTracker() {
               {/* Expenses List */}
               <div className="expenses-list">
                 <h2 className="h2-title left-colored-title">Expenses</h2>
-                <table className="table">
+                {/* <table className="table">
                   <thead className="table-heading">
                     <tr>
                       <th>CATEGORY</th>
@@ -212,7 +212,7 @@ function FinancialTracker() {
                       <td></td>
                     </tr>
                   </tfoot>
-                </table>
+                </table> */}
               </div>
             </form>
           </div>

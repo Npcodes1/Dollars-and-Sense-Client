@@ -9,7 +9,7 @@ function Signup({ user, setUser }) {
   const navigate = useNavigate();
 
   const handleSignupForm = (e) => {
-    // e.prevent.Default(); //to test that the console logs are working
+    // e.preventDefault(); //to test that the console logs are working
     //print message that the form submitted
     console.log("The form is working!");
 
@@ -37,7 +37,7 @@ function Signup({ user, setUser }) {
       .then((result) => {
         console.log(result);
         setUser(user);
-        // localStorage.setItem("user", JSON.stringify(result.data));
+        localStorage.setItem("user", JSON.stringify(result.data));
         navigate("/");
       })
       .catch((error) => console.log(error));

@@ -1,17 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+
 import "../Pages.css";
 import "../MediaQueries.css";
 
 const url = "http://localhost:8080";
 
 function Contact() {
-  const navigate = useNavigate();
-
   const handleContactForm = (e) => {
-    // e.prevent.Default(); //to test that the console logs are working
+    e.preventDefault(); //to test that the console logs are working
     //print message that the form submitted
-    console.log("The form is working!");
+    console.log("The form is working!", e.target.value);
 
     //create sends variable to hold the submitted sign up form information
     const body = {
@@ -21,7 +19,7 @@ function Contact() {
       message: e.target.message.value,
     };
 
-    //print values in console to check it's working
+    // //print values in console to check it's working
     console.log(body);
 
     //connect to backend to post data
@@ -34,8 +32,7 @@ function Contact() {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-        navigate("/");
+        console.log(result.data);
       })
       .catch((error) => console.log(error));
   };
@@ -82,7 +79,7 @@ function Contact() {
 
               {/* Email */}
               <div className="form-details">
-                <label htmlFor="lastName">Email:</label>
+                <label htmlFor="contactEmail">Email:</label>
                 <input
                   type="email"
                   name="email"
