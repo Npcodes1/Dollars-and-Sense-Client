@@ -12,18 +12,28 @@ const FinancialTracker = () => {
   const [note, setNote] = useState("");
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState("");
+  const [history, setHistory] = useState([]);
 
-  //To detect the value in the inputs when they change
-  const handleInputChange = (e) => {
-    console.log(e.target.value);
-    setCategory(category);
-    setDate(date);
-    setAmount(amount);
-    setNote(note);
+  //Add a new entry to history
+  const addEntry = () => {
+    const newEntry = {
+      category: category,
+      date: date,
+      amount: amount,
+      note: note,
+    };
+
+    history.push(newEntry);
+    setHistory(history);
+  };
+
+  const handleTotalInputChange = (e) => {
+    setTotal(parseInt(e.target.total.value));
   };
 
   const handleCreateExpenses = (e) => {
+    e.preventDefault(); //to double check everything is working before it refreshes
     // to tell whether it's income or expense
     if (category === "income") {
       // if selected category is income, add amount to total
@@ -42,7 +52,7 @@ const FinancialTracker = () => {
       note: e.target.note.value,
     };
 
-    console.log(body);
+    // console.log(body);
 
     fetch(`${url}/financial/tracker/entry/create`, {
       method: "POST",
@@ -57,18 +67,6 @@ const FinancialTracker = () => {
       })
       .catch((error) => console.log(error));
   };
-
-  //Retrieve Expenses
-  // const handleGetExpenses = () => {
-  //   fetch(`${url}/financial/tracker/entry/create`, {
-  //     method: "GET",
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log(result.data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
 
   return (
     <>
@@ -85,26 +83,36 @@ const FinancialTracker = () => {
               className="transactions-container"
               onSubmit={handleCreateExpenses}
             >
-              <div className="input-container">
+              <div className="input-container transactions">
+                <div>
+                  <label htmlFor="budget">Enter Your Budget: </label>
+                  <input
+                    type="number"
+                    id="budget"
+                    name="budget"
+                    value={total}
+                    onChange={(e) => setTotal(e.target.value)}
+                  />
+                </div>
                 <div className="category transactions">
                   <label htmlFor="category">Category: </label>
                   <select
                     id="category"
                     name="category"
                     value={category}
-                    onChange={handleInputChange}
+                    onChange={(e) => setCategory(e.target.value)}
                     required
                   >
                     <option></option>
-                    <option value="income">Income</option>
-                    <option value="morgage-rent">Mortgage/Rent</option>
-                    <option value="utilities">Utilities</option>
-                    <option value="insurance">Insurance</option>
-                    <option value="food">Food/Drinks</option>
-                    <option value="transportation">Transportation</option>
-                    <option value="health-wellness">Health/Wellness</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="miscellaneous">Miscellaneous</option>
+                    <option value="Income">Income</option>
+                    <option value="Mortgage-Rent">Mortgage/Rent</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Insurance">Insurance</option>
+                    <option value="Food">Food/Drinks</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Health-wellness">Health/Wellness</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
                   </select>
                 </div>
 
@@ -116,7 +124,7 @@ const FinancialTracker = () => {
                     id="date"
                     name="date"
                     value={date}
-                    onChange={handleInputChange}
+                    onChange={(e) => setDate(e.target.value)}
                     required
                   />
 
@@ -128,7 +136,7 @@ const FinancialTracker = () => {
                     name="amount"
                     value={amount}
                     placeholder="$"
-                    onChange={handleInputChange}
+                    onChange={(e) => setAmount(e.target.value)}
                     required
                   />
 
@@ -140,7 +148,7 @@ const FinancialTracker = () => {
                     name="note"
                     value={note}
                     placeholder="Add a Note"
-                    onChange={handleInputChange}
+                    onChange={(e) => setNote(e.target.value)}
                     required
                   ></textarea>
                 </div>
@@ -149,97 +157,37 @@ const FinancialTracker = () => {
                     id="add-transaction"
                     className="btn add-btn"
                     type="submit"
+                    onClick={addEntry}
                   >
                     ADD
                   </button>
                 </div>
               </div>
-
+              <hr />
+              <h2 className="h2-title left-colored-title">
+                Your Total is:
+                <span onChange={handleTotalInputChange}> $</span>
+              </h2>
+              <hr />
               {/* Expenses List */}
               <div className="expenses-list">
-                <h2 className="h2-title left-colored-title">History</h2>
-                {/* <table className="table">
-                  <thead className="table-heading">
-                    <tr>
-                      <th>CATEGORY</th>
-                      <th>DATE</th>
-                      <th>AMOUNT</th>
-                      <th>NOTE</th>
-                      <th>EDIT</th>
-                      <th>DELETE</th>
-                    </tr>
-                  </thead>
-                  <tbody className="expense-table-body">
-                    <tr className="expenses-table-row">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td className="edit">
-                        <button className="btn btn-edit">EDIT</button>
-                      </td>
-                      <td className="delete">
-                        <button className="btn btn-delete">DELETE</button>
-                      </td>
-                    </tr>
-                    <tr className="expenses-table-row">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td className="edit">
-                        <button className="btn btn-edit">EDIT</button>
-                      </td>
-                      <td className="delete">
-                        <button className="btn btn-delete">DELETE</button>
-                      </td>
-                    </tr>
-                    <tr className="expenses-table-row">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td className="edit">
-                        <button className="btn btn-edit">EDIT</button>
-                      </td>
-                      <td className="delete">
-                        <button className="btn btn-delete">DELETE</button>
-                      </td>
-                    </tr>
-                    <tr className="expenses-table-row">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td className="edit">
-                        <button className="btn btn-edit">EDIT</button>
-                      </td>
-                      <td className="delete">
-                        <button className="btn btn-delete">DELETE</button>
-                      </td>
-                    </tr>
-                    <tr className="expenses-table-row">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td className="edit">
-                        <button className="btn btn-edit">EDIT</button>
-                      </td>
-                      <td className="delete">
-                        <button className="btn btn-delete">DELETE</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                    <tr className="total-container">
-                      <td className="total">TOTAL:</td>
-                      <td id="total-amount"></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tfoot>
-                </table> */}
+                <h2 className="h2-title left-colored-title history-title">
+                  History
+                </h2>
+                <div className="history">
+                  <ul className="history-list">
+                    {history.map((item, key) => (
+                      //to make sure to have a unique id when creating each list>
+                      <li key={key}>
+                        <span>{item.key}</span>{" "}
+                        <span>Category: {item.category}</span>
+                        <span>Date: {item.date}</span>{" "}
+                        <span>Amount: ${item.amount}</span>
+                        <span>Note: {item.note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </form>
           </div>

@@ -91,7 +91,7 @@
 }
 
 .transactions-container {
-  max-width: 40%;
+  width: 70%;
   border-radius: 15px;
   padding: 0 0 2rem;
   font-size: 1.4rem;
@@ -100,6 +100,7 @@
 .input-container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.3rem;
 }
 
@@ -116,6 +117,12 @@
   margin: 0.6rem 0;
   padding: 0.5rem;
   font-size: 1.5rem;
+}
+
+#category {
+  height: 40px;
+  width: 20rem;
+  border-radius: 0.5rem;
 }
 
 .transactions input,
@@ -146,38 +153,6 @@
   margin-bottom: 20px;
 }
 
-.table-container {
-  overflow-x: auto;
-}
-
-.table {
-  width: 100%;
-  max-width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  padding: 8px 12px;
-  text-align: left;
-}
-
-.table-heading th {
-  background-color: var(--snow);
-  text-align: center;
-}
-
-.expense-table-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.expense-table-body .expenses-table-row:nth-child(even) {
-  background-color: var(--light-gray);
-}
-
 .btn {
   padding: 6px 12px;
   font-size: 0.9em;
@@ -198,6 +173,15 @@
 .total-container {
   font-weight: bold;
   background-color: var(--snow);
+}
+
+/* History Section on Tracker Page */
+.history-title {
+  color: var(--caput-mortuum);
+}
+
+.history-list li span {
+  margin: 0.4rem;
 }
 
 /* Forgot Login Page */
