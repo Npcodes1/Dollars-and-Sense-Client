@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Pages.css";
 import "../MediaQueries.css";
 
-function Resources() {
+const Resources = () => {
   return (
     <>
       <main>
@@ -87,6 +87,6 @@ function Resources() {
       </main>
     </>
   );
-}
+};
 
 export default Resources;

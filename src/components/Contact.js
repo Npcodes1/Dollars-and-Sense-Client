@@ -5,9 +5,9 @@ import "../MediaQueries.css";
 
 const url = "http://localhost:8080";
 
-function Contact() {
+const Contact = () => {
   const handleContactForm = (e) => {
-    e.preventDefault(); //to test that the console logs are working
+    // e.preventDefault(); //to test that the console logs are working
     //print message that the form submitted
     console.log("The form is working!", e.target.value);
 
@@ -114,6 +114,6 @@ function Contact() {
       </main>
     </>
   );
-}
+};
 
 export default Contact;

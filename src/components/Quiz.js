@@ -3,7 +3,7 @@ import "../Quiz.css";
 import "../Pages.css";
 import "../MediaQueries.css";
 
-function Quiz() {
+const Quiz = () => {
   //To keep score. Initial score is 0.
   const [score, setScore] = useState(0);
 
@@ -147,6 +147,6 @@ function Quiz() {
       </form>
     </>
   );
-}
+};
 
 export default Quiz;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Pages.css";
 import "../MediaQueries.css";
 
-function CreditScore() {
+const CreditScore = () => {
   return (
     <>
       <main>
@@ -130,6 +130,6 @@ function CreditScore() {
       </main>
     </>
   );
-}
+};
 
 export default CreditScore;

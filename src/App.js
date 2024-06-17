@@ -18,8 +18,6 @@ import "./Pages.css";
 import "./Footer.css";
 import "./MediaQueries.css";
 
-// import Admin from "./components/Admin";
-
 function App() {
   const [user, setUser] = useState(localStorage.getItem("user") || {});
 

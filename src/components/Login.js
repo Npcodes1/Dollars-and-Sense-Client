@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const url = "http://localhost:8080";
 
-function Login({ user, setUser }) {
+const Login = ({ user, setUser }) => {
   //To navigate to other pages
   const navigate = useNavigate();
 
@@ -133,6 +133,6 @@ function Login({ user, setUser }) {
       </main>
     </>
   );
-}
+};
 
 export default Login;

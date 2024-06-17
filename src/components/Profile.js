@@ -4,7 +4,7 @@ import "../MediaQueries.css";
 import Login from "./Login";
 import Signup from "./Signup";
 
-function Profile({ user, setUser }) {
+const Profile = ({ user, setUser }) => {
   return (
     <>
       <main>
@@ -13,6 +13,6 @@ function Profile({ user, setUser }) {
       </main>
     </>
   );
-}
+};
 
 export default Profile;

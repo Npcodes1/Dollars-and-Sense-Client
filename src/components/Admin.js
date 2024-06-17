@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:8080";
 
-function Admin() {
+const Admin = () => {
   const navigate = useNavigate();
 
   // to hold data for users. Initial state is an empty array
@@ -202,6 +202,6 @@ function Admin() {
       </main>
     </>
   );
-}
+};
 
 export default Admin;

@@ -7,7 +7,7 @@ import { Pie } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 //Pie Chart using chart.js
-function PieChart() {
+const PieChart = () => {
   const data = {
     labels: [
       "81% Caucasian",
@@ -41,6 +41,6 @@ function PieChart() {
       <Pie data={data} />
     </div>
   );
-}
+};
 
 export default PieChart;

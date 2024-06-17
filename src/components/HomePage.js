@@ -5,7 +5,7 @@ import "../MediaQueries.css";
 import Quiz from "./Quiz";
 import PieChart from "./PieChart";
 
-function HomePage() {
+const HomePage = () => {
   return (
     <>
       <main>
@@ -68,6 +68,6 @@ function HomePage() {
       </main>
     </>
   );
-}
+};
 
 export default HomePage;

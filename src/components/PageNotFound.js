@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../Pages.css";
 import "../MediaQueries.css";
 
-function PageNotFound() {
+const PageNotFound = () => {
   const navigate = useNavigate();
 
   const handleErrorRedirect = () => {
@@ -31,6 +31,6 @@ function PageNotFound() {
       </section>
     </>
   );
-}
+};
 
 export default PageNotFound;

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:8080";
 
-function Signup({ user, setUser }) {
+const Signup = ({ user, setUser }) => {
   const navigate = useNavigate();
 
   const handleSignupForm = (e) => {
@@ -130,6 +130,6 @@ function Signup({ user, setUser }) {
       </section>
     </>
   );
-}
+};
 
 export default Signup;

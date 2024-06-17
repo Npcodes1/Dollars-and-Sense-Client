@@ -3,7 +3,7 @@ import "../Pages.css";
 import "../MediaQueries.css";
 import { Link } from "react-router-dom";
 
-function ForgotLogin() {
+const ForgotLogin = () => {
   return (
     <>
       <main>
@@ -53,6 +53,6 @@ function ForgotLogin() {
       </main>
     </>
   );
-}
+};
 
 export default ForgotLogin;
