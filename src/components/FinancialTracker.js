@@ -84,7 +84,7 @@ const FinancialTracker = () => {
               onSubmit={handleCreateExpenses}
             >
               <div className="input-container transactions">
-                <div>
+                <div className="transactions">
                   <label htmlFor="budget">Enter Your Budget: </label>
                   <input
                     type="number"

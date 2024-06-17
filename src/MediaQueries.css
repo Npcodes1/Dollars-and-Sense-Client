@@ -61,13 +61,14 @@
   }
 
   /* Financial Tracker */
-  .transactions-container {
-    max-width: 100%;
+  form.transactions-container,
+  select#category {
+    width: 100%;
   }
-  .table th,
-  .table td {
-    font-size: 0.9em;
-    padding: 6px 8px;
+
+  div.transactions,
+  #category {
+    width: 100%;
   }
 
   .btn {
