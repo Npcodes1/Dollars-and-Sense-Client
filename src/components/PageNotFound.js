@@ -1,13 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Pages.css";
 import "../MediaQueries.css";
+
+const url = "http://localhost:8080";
 
 const PageNotFound = () => {
   const navigate = useNavigate();
 
   const handleErrorRedirect = () => {
-    navigate("/");
+    //connect to backend to post data
+    fetch(`${url}/login/local/failed`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -23,9 +34,11 @@ const PageNotFound = () => {
             alt="Sad puppy with a error requesting page method."
           />
           <div className="page-error-btn">
-            <button className="btn" onClick={handleErrorRedirect}>
-              Return Home
-            </button>
+            <Link to="/login/local/failed">
+              <button className="btn" onClick={handleErrorRedirect}>
+                Return Home
+              </button>
+            </Link>
           </div>
         </div>
       </section>

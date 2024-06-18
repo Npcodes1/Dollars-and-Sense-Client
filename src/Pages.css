@@ -244,25 +244,3 @@
   text-align: center;
   margin-top: 1rem;
 }
-
-/* ChatBot */
-.chatbot-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.chat-style {
-  font-size: 3rem;
-}
-
-.chat-btn {
-  background-color: var(--almond);
-  border-radius: 0.2rem;
-}
-
-.stop-btn {
-  background-color: var(--dark-red);
-  color: white;
-}

@@ -36,11 +36,11 @@
     flex-basis: 100px;
   }
 
-  .form-submit-quiz {
+  div.form-submit-quiz {
     flex-direction: column;
   }
 
-  .form-btn {
+  button.form-btn.clear-btn.btn {
     margin-top: 1.2rem;
   }
 

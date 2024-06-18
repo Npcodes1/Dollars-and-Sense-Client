@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../NavBar.css";
 import "../MediaQueries.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,31 +10,8 @@ import {
   faBook,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-// import ChatBot from "../components/ChatBot";
-
-const url = "http://localhost:8080";
 
 function NavBar({ user, setUser }) {
-  //to navigate
-  const navigate = useNavigate();
-
-  //to handle logout
-  const handleLogout = () => {
-    fetch(`${url}/logout`, {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result); //print success message
-        setUser({}); //set user state to empty object
-        localStorage.removeItem("user"); //remove user from localStorage
-        navigate("/"); //navigate back to home
-      })
-      .catch((error) => {
-        console.log(error); //print error message
-        navigate("/"); //navigate back to home
-      });
-  };
   return (
     <>
       <header className="top-header">
@@ -63,17 +40,16 @@ function NavBar({ user, setUser }) {
             <li>
               <Link to="/contact">CONTACT</Link>
             </li>
+
             <li>
               {user.username ? (
-                <div>
+                <>
                   <Link to="/admin">ADMIN</Link>
-
-                  <a href="/" onClick={handleLogout}>
-                    LOGOUT
-                  </a>
-                </div>
+                </>
               ) : (
-                <Link to="/profile">PROFILE</Link>
+                <>
+                  <Link to="/profile">PROFILE</Link>
+                </>
               )}
             </li>
           </ul>
@@ -114,7 +90,6 @@ function NavBar({ user, setUser }) {
           d="M0,64L80,58.7C160,53,320,43,480,69.3C640,96,800,160,960,181.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         ></path>
       </svg>
-      {/* <ChatBot /> */}
     </>
   );
 }

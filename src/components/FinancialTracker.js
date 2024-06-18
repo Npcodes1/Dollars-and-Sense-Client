@@ -6,16 +6,15 @@ const url = "http://localhost:8080";
 
 const FinancialTracker = () => {
   //To detect the changes in state
+  const [budget, setBudget] = useState();
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState();
   const [note, setNote] = useState("");
-  const [income, setIncome] = useState(0);
-  const [expense, setExpense] = useState(0);
-  const [total, setTotal] = useState("");
+  const [total, setTotal] = useState(0);
   const [history, setHistory] = useState([]);
 
-  //Add a new entry to history
+  //Add a new entry to history so there's a log of expenses.
   const addEntry = () => {
     const newEntry = {
       category: category,
@@ -28,6 +27,14 @@ const FinancialTracker = () => {
     setHistory(history);
   };
 
+  //clear form contents
+  const handleFormReset = () => {
+    setCategory("");
+    setDate("");
+    setAmount("");
+    setNote("");
+  };
+
   const handleTotalInputChange = (e) => {
     setTotal(parseInt(e.target.total.value));
   };
@@ -35,14 +42,20 @@ const FinancialTracker = () => {
   const handleCreateExpenses = (e) => {
     e.preventDefault(); //to double check everything is working before it refreshes
     // to tell whether it's income or expense
-    if (category === "income") {
-      // if selected category is income, add amount to total
-      setTotal(parseInt(total) + parseInt(amount));
-      setIncome(parseInt(income) + parseInt(amount));
+    if (category === "Income") {
+      // if selected category is income, add amount to budget
+      // setBudget(parseInt(budget));
+      let income = setBudget(parseInt(budget) + parseInt(amount));
+      console.log(income);
+      setAmount(parseInt(amount));
+      setTotal([...total, setBudget + setAmount]);
     } else {
-      // if selected category is expense, subtract amount from total
-      setTotal(parseInt(total) - parseInt(amount));
-      setExpense(parseInt(expense) - parseInt(amount));
+      // if selected category is expense, subtract amount from budget
+      let expense = setBudget(parseInt(budget) - parseInt(amount));
+      console.log(expense);
+      // setTotal(parseInt(total) - parseInt(amount));
+      setAmount(parseInt(amount));
+      setTotal(setBudget - setAmount);
     }
 
     const body = {
@@ -64,6 +77,7 @@ const FinancialTracker = () => {
       .then((response) => response.json())
       .then((result) => {
         console.log(result.data);
+        handleFormReset();
       })
       .catch((error) => console.log(error));
   };
@@ -85,13 +99,14 @@ const FinancialTracker = () => {
             >
               <div className="input-container transactions">
                 <div className="transactions">
-                  <label htmlFor="budget">Enter Your Budget: </label>
+                  <label htmlFor="budget">Enter Your Starting Budget: </label>
                   <input
                     type="number"
                     id="budget"
                     name="budget"
-                    value={total}
-                    onChange={(e) => setTotal(e.target.value)}
+                    value={budget}
+                    placeholder="$"
+                    onChange={(e) => setBudget(e.target.value)}
                   />
                 </div>
                 <div className="category transactions">
@@ -166,7 +181,7 @@ const FinancialTracker = () => {
               <hr />
               <h2 className="h2-title left-colored-title">
                 Your Total is:
-                <span onChange={handleTotalInputChange}> $</span>
+                <span onChange={handleTotalInputChange}> ${budget}</span>
               </h2>
               <hr />
               {/* Expenses List */}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import "../Pages.css";
 import "../MediaQueries.css";
 
@@ -97,14 +97,14 @@ const CreditScore = () => {
             <div className="credit-score-container">
               {/* Request Credit Score Button */}
               <div className="form-submit">
-                <button
+                <a
                   href="https://www.annualcreditreport.com/requestReport/landingPage.action"
                   className="btn"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Request Credit Report
-                </button>
+                </a>
               </div>
               {/* Credit Score Img */}
               <div className="content-image-wrapper">
@@ -116,13 +116,13 @@ const CreditScore = () => {
               </div>
               {/* Cited Source */}
               <div className="resource-link">
-                <Link
-                  to="https://www.fidelity.com/learning-center/smart-money/what-is-a-credit-score"
+                <a
+                  href="https://www.fidelity.com/learning-center/smart-money/what-is-a-credit-score"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Information provided by Fidelity
-                </Link>
+                </a>
               </div>
             </div>
           </div>

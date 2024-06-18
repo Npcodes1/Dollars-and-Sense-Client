@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:8080";
 
 const Admin = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // to hold data for users. Initial state is an empty array
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([{}]);
 
   //to hold data for messages sent from contact form. Initial state is an empty array
-  const [sends, setSends] = useState([]);
+  const [sends, setSends] = useState([{}]);
 
   //To get Users
   useEffect(() => {
@@ -24,48 +24,48 @@ const Admin = () => {
       .then((response) => response.json()) //to convert response into json
       .then((result) => {
         console.log(result); //print converted result to console
-        setUsers(users.data);
+        setUsers(result.data);
       })
       .catch((error) => console.log("Request failed", error));
   }, [users]);
 
   //To create User
-  const handleCreateUser = () => {
-    fetch(`${url}/admin/users/create`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(users),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log(error));
-  };
+  // const handleCreateUser = () => {
+  //   fetch(`${url}/admin/users/create`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(users),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log(error));
+  // };
 
   //To edit User
-  const handleEditUser = (userId) => {
-    fetch(`${url}/admin/users/edit/${userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(users),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log(error));
-  };
+  // const handleEditUser = (userId) => {
+  //   fetch(`${url}/admin/users/edit/${userId}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(users),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log(error));
+  // };
 
-  //To delete User
-  const handleDeleteUser = (userId) => {
-    fetch(`${url}/admin/users/delete/${userId}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log(error));
-  };
+  // //To delete User
+  // const handleDeleteUser = (userId) => {
+  //   fetch(`${url}/admin/users/delete/${userId}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log(error));
+  // };
 
   //useEffect to use setter function for users imported from signUp data
   useEffect(() => {
@@ -80,18 +80,18 @@ const Admin = () => {
       .catch((error) => console.log("Request failed", error));
   }, [sends]);
 
-  const handleDeleteMessage = (sendId) => {
-    fetch(`${url}/api/books/delete/${sendId}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log(error));
-  };
+  // const handleDeleteMessage = (sendId) => {
+  //   fetch(`${url}/api/books/delete/${sendId}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log(error));
+  // };
 
-  const handleEditMessage = (sendId) => {
-    navigate("/update");
-  };
+  // const handleEditMessage = (sendId) => {
+  //   navigate("/update");
+  // };
 
   return (
     <>
@@ -123,7 +123,7 @@ const Admin = () => {
                       <td>{user.username}</td>
                       {/* <td>{user.password}</td> */}
                       <td>
-                        <button
+                        {/* <button
                           className="btn"
                           onClick={() => handleCreateUser()}
                         >
@@ -144,7 +144,7 @@ const Admin = () => {
                           onClick={() => handleDeleteUser(user.id)}
                         >
                           DELETE
-                        </button>
+                        </button> */}
                       </td>
                     </tr>
                   );
@@ -177,9 +177,9 @@ const Admin = () => {
                       <td>{send.username}</td>
                       <td>{send.password}</td>
                       <td>
-                        <button
+                        {/* <button
                           className="btn btn-edit"
-                          onClick={() => handleEditMessage(send.id)}
+                          // onClick={() => handleEditMessage(send.id)}
                         >
                           EDIT
                         </button>
@@ -190,7 +190,7 @@ const Admin = () => {
                           onClick={() => handleDeleteMessage(send.id)}
                         >
                           DELETE
-                        </button>
+                        </button> */}
                       </td>
                     </tr>
                   );

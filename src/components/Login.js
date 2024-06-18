@@ -35,14 +35,15 @@ const Login = ({ user, setUser }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        body: JSON.stringify(body),
       },
-      body: JSON.stringify(body),
     })
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
         localStorage.setItem("user", JSON.stringify(result.data));
-        navigate("/");
+        setUser(result.data);
+        navigate("/admin");
       })
       .catch((error) => console.log(error));
   };
@@ -103,9 +104,11 @@ const Login = ({ user, setUser }) => {
 
               {/* Submit Button */}
               <div className="form-submit">
-                <button className="btn" type="submit">
-                  Login
-                </button>
+                <Link to="/api/login/local">
+                  <button className="btn" type="submit">
+                    Login
+                  </button>
+                </Link>
               </div>
               {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
 
@@ -120,13 +123,13 @@ const Login = ({ user, setUser }) => {
                   <Link to="/forgot-login"> Forgot Username/Password</Link>
                 </span>
               </div>
-              {/* Admin Users Redirect */}
+              {/* Admin Users Redirect
               <div className="form-link">
                 <span>
                   Are you an Admin? Login to your account here:
                   <Link to="/admin"> Admin</Link>
                 </span>
-              </div>
+              </div> */}
             </div>
           </form>
         </section>
