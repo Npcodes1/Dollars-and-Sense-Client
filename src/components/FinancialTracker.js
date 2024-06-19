@@ -11,7 +11,7 @@ const FinancialTracker = () => {
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState();
   const [note, setNote] = useState("");
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState("");
   const [history, setHistory] = useState([]);
 
   //Add a new entry to history so there's a log of expenses.
@@ -35,20 +35,20 @@ const FinancialTracker = () => {
     setNote("");
   };
 
-  const handleTotalInputChange = (e) => {
-    setTotal(parseInt(e.target.total.value));
-  };
+  // const handleTotalInputChange = (e) => {
+  //   setTotal(parseInt(e.target.total.value));
+  // };
 
   const handleCreateExpenses = (e) => {
     e.preventDefault(); //to double check everything is working before it refreshes
+    setTotal(total); //setting the total
+
     // to tell whether it's income or expense
     if (category === "Income") {
       // if selected category is income, add amount to budget
-      // setBudget(parseInt(budget));
-      let income = setBudget(parseInt(budget) + parseInt(amount));
-      console.log(income);
+      setBudget(parseInt(budget));
       setAmount(parseInt(amount));
-      setTotal([...total, setBudget + setAmount]);
+      setTotal(setBudget + setAmount);
     } else {
       // if selected category is expense, subtract amount from budget
       let expense = setBudget(parseInt(budget) - parseInt(amount));
@@ -67,6 +67,7 @@ const FinancialTracker = () => {
 
     // console.log(body);
 
+    //to send the data to the database
     fetch(`${url}/financial/tracker/entry/create`, {
       method: "POST",
       headers: {
@@ -180,8 +181,10 @@ const FinancialTracker = () => {
               </div>
               <hr />
               <h2 className="h2-title left-colored-title">
-                Your Total is:
-                <span onChange={handleTotalInputChange}> ${budget}</span>
+                Your Total is: {""}
+                <span onChange={(e) => setTotal(e.target.value)}>
+                  ${budget}
+                </span>
               </h2>
               <hr />
               {/* Expenses List */}

@@ -21,6 +21,9 @@ import "./MediaQueries.css";
 function App() {
   const [user, setUser] = useState(localStorage.getItem("user") || {});
 
+  //initial state for login
+  // const [loggedIn, setLoggedIn] = useState("");
+
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser} />

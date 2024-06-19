@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 const url = "http://localhost:8080";
 
 const Logout = () => {
-  //to navigate
+  //   to navigate
   const navigate = useNavigate();
 
-  //to handle logout
+  //   to handle logout
   const handleLogout = ({ user, setUser }) => {
     fetch(`${url}/logout`, {
       method: "GET",

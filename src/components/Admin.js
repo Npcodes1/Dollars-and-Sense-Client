@@ -3,31 +3,32 @@ import "../Pages.css";
 import "../MediaQueries.css";
 // import { useNavigate } from "react-router-dom";
 
-const url = "http://localhost:8080";
+// const url = "http://localhost:8080";
 
 const Admin = () => {
   // const navigate = useNavigate();
 
   // to hold data for users. Initial state is an empty array
-  const [users, setUsers] = useState([{}]);
+  const [users, setUsers] = useState([]);
 
   //to hold data for messages sent from contact form. Initial state is an empty array
-  const [sends, setSends] = useState([{}]);
+  const [sends, setSends] = useState([]);
 
-  //To get Users
-  useEffect(() => {
+  //For updating the state
+  const handleGetAllUsers = () => {
+    //To get Users
     //Get Request to get all users
-    fetch(`${url}/auth/admin/users`, {
+    fetch(`http://localhost:8080/admin/users`, {
       method: "GET",
     })
       //if successful, show the users and if not, show an error
       .then((response) => response.json()) //to convert response into json
       .then((result) => {
         console.log(result); //print converted result to console
-        setUsers(result.data);
+        setUsers(users.data);
       })
       .catch((error) => console.log("Request failed", error));
-  }, [users]);
+  };
 
   //To create User
   // const handleCreateUser = () => {
@@ -70,12 +71,12 @@ const Admin = () => {
   //useEffect to use setter function for users imported from signUp data
   useEffect(() => {
     //Get Request to get all users
-    fetch(`${url}/admin/messages`)
+    fetch(`http:localhost:8080/admin/messages`)
       //if successful, show the users and if not, show an error
       .then((response) => response.json()) //to convert response into json
       .then((result) => {
         console.log(result); //print converted result to console
-        setSends(sends);
+        setSends(result.data);
       })
       .catch((error) => console.log("Request failed", error));
   }, [sends]);
@@ -100,9 +101,10 @@ const Admin = () => {
           <h1 className="h1-title">ADMIN ACCESS</h1>
         </section>
         <section className="section-container">
-          <div className="content-wrapper">
+          <form className="content-wrapper" onSubmit={handleGetAllUsers}>
             {/* Signed up Users Data */}
             <h2>Users</h2>
+            <button type="submit">Get Users</button>
             <table className="table">
               <thead className="table-heading">
                 <tr>
@@ -151,7 +153,7 @@ const Admin = () => {
                 })}
               </tbody>
             </table>
-          </div>
+          </form>
         </section>
 
         {/* Section for Messages from Contact Form */}

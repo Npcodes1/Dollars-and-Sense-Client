@@ -10,8 +10,21 @@ const Login = ({ user, setUser }) => {
   //To navigate to other pages
   const navigate = useNavigate();
 
-  //change state of user and profile
-  // const [profile, setProfile] = useState([]);
+  //check Authentication
+  const checkAuthentication = () => {
+    fetch(`${url}/auth/admin/login`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setUser(result.data);
+        alert("Checking Authentication...");
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleLoginForm = (e) => {
     //prevent default refreshing
@@ -40,12 +53,18 @@ const Login = ({ user, setUser }) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-        localStorage.setItem("user", JSON.stringify(result.data));
-        setUser(result.data);
-        navigate("/admin");
+        if (user.password) {
+          console.log(result);
+          localStorage.setItem("user", JSON.stringify(result.data));
+          setUser(result.data);
+          alert("You've successfully logged in!");
+          navigate("/admin");
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        // navigate to Page not Found
+        console.log(error);
+      });
   };
 
   //to get to authorization pages for Google and GitHub
@@ -98,17 +117,21 @@ const Login = ({ user, setUser }) => {
                   name="password"
                   id="password"
                   placeholder="Password"
-                  // required
+                  required
                 />
               </div>
 
               {/* Submit Button */}
               <div className="form-submit">
-                <Link to="/api/login/local">
-                  <button className="btn" type="submit">
-                    Login
-                  </button>
-                </Link>
+                {/* <Link to="/auth/admin/login"> */}
+                <button
+                  className="btn"
+                  type="submit"
+                  onClick={checkAuthentication}
+                >
+                  Login
+                </button>
+                {/* </Link> */}
               </div>
               {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
 
@@ -123,13 +146,13 @@ const Login = ({ user, setUser }) => {
                   <Link to="/forgot-login"> Forgot Username/Password</Link>
                 </span>
               </div>
-              {/* Admin Users Redirect
+              {/* Admin Users Redirect */}
               <div className="form-link">
                 <span>
                   Are you an Admin? Login to your account here:
                   <Link to="/admin"> Admin</Link>
                 </span>
-              </div> */}
+              </div>
             </div>
           </form>
         </section>
