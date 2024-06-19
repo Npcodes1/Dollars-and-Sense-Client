@@ -35,25 +35,20 @@ const FinancialTracker = () => {
     setNote("");
   };
 
-  // const handleTotalInputChange = (e) => {
-  //   setTotal(parseInt(e.target.total.value));
-  // };
-
   const handleCreateExpenses = (e) => {
     e.preventDefault(); //to double check everything is working before it refreshes
     setTotal(total); //setting the total
-
     // to tell whether it's income or expense
     if (category === "Income") {
       // if selected category is income, add amount to budget
-      setBudget(parseInt(budget));
+      setBudget(parseInt(budget)); //set the budget
+      setBudget(parseInt(budget) + parseInt(amount));
       setAmount(parseInt(amount));
       setTotal(setBudget + setAmount);
+      // console.log(setTotal);
     } else {
       // if selected category is expense, subtract amount from budget
-      let expense = setBudget(parseInt(budget) - parseInt(amount));
-      console.log(expense);
-      // setTotal(parseInt(total) - parseInt(amount));
+      setBudget(parseInt(budget) - parseInt(amount));
       setAmount(parseInt(amount));
       setTotal(setBudget - setAmount);
     }
@@ -67,7 +62,6 @@ const FinancialTracker = () => {
 
     // console.log(body);
 
-    //to send the data to the database
     fetch(`${url}/financial/tracker/entry/create`, {
       method: "POST",
       headers: {
