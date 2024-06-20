@@ -40,7 +40,6 @@ function NavBar({ user, setUser }) {
             <li>
               <Link to="/contact">CONTACT</Link>
             </li>
-
             <li>
               {user.username ? (
                 <>

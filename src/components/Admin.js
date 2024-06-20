@@ -9,10 +9,10 @@ const Admin = () => {
   // const navigate = useNavigate();
 
   // to hold data for users. Initial state is an empty array
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([{}]);
 
   //to hold data for messages sent from contact form. Initial state is an empty array
-  const [sends, setSends] = useState([]);
+  const [sends, setSends] = useState([{}]);
 
   //For updating the state
   const handleGetAllUsers = () => {
@@ -69,17 +69,17 @@ const Admin = () => {
   // };
 
   //useEffect to use setter function for users imported from signUp data
-  useEffect(() => {
-    //Get Request to get all users
-    fetch(`http:localhost:8080/admin/messages`)
-      //if successful, show the users and if not, show an error
-      .then((response) => response.json()) //to convert response into json
-      .then((result) => {
-        console.log(result); //print converted result to console
-        setSends(result.data);
-      })
-      .catch((error) => console.log("Request failed", error));
-  }, [sends]);
+  // useEffect(() => {
+  //   //Get Request to get all users
+  //   fetch(`http:localhost:8080/admin/messages`)
+  //     //if successful, show the users and if not, show an error
+  //     .then((response) => response.json()) //to convert response into json
+  //     .then((result) => {
+  //       console.log(result); //print converted result to console
+  //       setSends(result.data);
+  //     })
+  //     .catch((error) => console.log("Request failed", error));
+  // }, [sends]);
 
   // const handleDeleteMessage = (sendId) => {
   //   fetch(`${url}/api/books/delete/${sendId}`, {
@@ -124,6 +124,9 @@ const Admin = () => {
                       <td>{user.email}</td>
                       <td>{user.username}</td>
                       {/* <td>{user.password}</td> */}
+                      <td>
+                        <button type="submit"></button>
+                      </td>
                       <td>
                         {/* <button
                           className="btn"

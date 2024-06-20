@@ -10,22 +10,6 @@ const Login = ({ user, setUser }) => {
   //To navigate to other pages
   const navigate = useNavigate();
 
-  //check Authentication
-  const checkAuthentication = () => {
-    fetch(`${url}/auth/admin/login`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        setUser(result.data);
-        alert("Checking Authentication...");
-      })
-      .catch((error) => console.log(error));
-  };
-
   const handleLoginForm = (e) => {
     //prevent default refreshing
     e.preventDefault();
@@ -36,12 +20,12 @@ const Login = ({ user, setUser }) => {
     //use body variable to hold data that's submitted
     const body = {
       username: e.target.username.value,
-      password: e.target.username.value,
+      password: e.target.password.value,
     };
 
     //print the value of each input using its name attribute
-    console.log(body.username);
-    console.log(body.password);
+    // console.log(body.username);
+    // console.log(body.password);
 
     //need to send/post the data to the backend
     fetch(`${url}/api/login/local`, {
@@ -53,13 +37,10 @@ const Login = ({ user, setUser }) => {
     })
       .then((response) => response.json())
       .then((result) => {
-        if (user.password) {
-          console.log(result);
-          localStorage.setItem("user", JSON.stringify(result.data));
-          setUser(result.data);
-          alert("You've successfully logged in!");
-          navigate("/admin");
-        }
+        console.log(result);
+        localStorage.setItem("user", JSON.stringify(result.data));
+        alert("You've successfully logged in!");
+        navigate("/admin");
       })
       .catch((error) => {
         // navigate to Page not Found
@@ -124,11 +105,7 @@ const Login = ({ user, setUser }) => {
               {/* Submit Button */}
               <div className="form-submit">
                 {/* <Link to="/auth/admin/login"> */}
-                <button
-                  className="btn"
-                  type="submit"
-                  onClick={checkAuthentication}
-                >
+                <button className="btn" type="submit">
                   Login
                 </button>
                 {/* </Link> */}
@@ -144,13 +121,6 @@ const Login = ({ user, setUser }) => {
                 <span>
                   Already have an account but can't login?
                   <Link to="/forgot-login"> Forgot Username/Password</Link>
-                </span>
-              </div>
-              {/* Admin Users Redirect */}
-              <div className="form-link">
-                <span>
-                  Are you an Admin? Login to your account here:
-                  <Link to="/admin"> Admin</Link>
                 </span>
               </div>
             </div>
