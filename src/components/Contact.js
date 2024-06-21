@@ -32,6 +32,7 @@ const Contact = () => {
     })
       .then((response) => response.json())
       .then((result) => {
+        console.log("Your form has been successfully submitted!");
         console.log(result.data);
       })
       .catch((error) => console.log(error));

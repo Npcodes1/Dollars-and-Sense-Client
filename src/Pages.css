@@ -244,3 +244,26 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+/* Admin */
+.table {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--black);
+  overflow-x: auto;
+}
+
+.table-heading th {
+  flex: 1;
+  padding: 0.5rem;
+  text-decoration: underline;
+}
+
+tr:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+.table-row td {
+  flex: 1;
+  padding: 0.5rem;
+}

@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
-import { Link, useNavigate } from "react-router-dom";
-// import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 
 const url = "http://localhost:8080";
 
 const Login = ({ user, setUser }) => {
   //To navigate to other pages
   const navigate = useNavigate();
+
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+  const errorMessage = (error) => {
+    console.log(error);
+  };
 
   const handleLoginForm = (e) => {
     //prevent default refreshing
@@ -32,10 +39,11 @@ const Login = ({ user, setUser }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        body: JSON.stringify(body),
       },
+      body: JSON.stringify(body),
     })
       .then((response) => response.json())
+
       .then((result) => {
         console.log(result);
         localStorage.setItem("user", JSON.stringify(result.data));
@@ -43,7 +51,7 @@ const Login = ({ user, setUser }) => {
         navigate("/admin");
       })
       .catch((error) => {
-        // navigate to Page not Found
+        navigate("/");
         console.log(error);
       });
   };
@@ -54,18 +62,18 @@ const Login = ({ user, setUser }) => {
   //   onError: (error) => console.log("Login Failed", error),
   // });
 
-  // useEffect(() => {
-  //   fetch(`${url}/auth/google`, {
-  //     method: "GET",
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //       navigate("/");
-  //       setUser(user);
-  //     })
-  //     .catch((error) => console.log(error));
-  // });
+  useEffect(() => {
+    fetch(`${url}/auth/google`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        navigate("/");
+        setUser(user);
+      })
+      .catch((error) => console.log(error));
+  });
 
   return (
     <>
@@ -104,25 +112,23 @@ const Login = ({ user, setUser }) => {
 
               {/* Submit Button */}
               <div className="form-submit">
-                {/* <Link to="/auth/admin/login"> */}
                 <button className="btn" type="submit">
                   Login
                 </button>
-                {/* </Link> */}
               </div>
-              {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
+              <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
 
-              {/* <button className="auth-btn" type="submit">
+              <button className="auth-btn" type="submit">
                 Sign in with GitHub
-              </button> */}
+              </button>
 
               {/* Forgot Username/Password */}
-              <div className="form-link">
+              {/* <div className="form-link">
                 <span>
                   Already have an account but can't login?
                   <Link to="/forgot-login"> Forgot Username/Password</Link>
                 </span>
-              </div>
+              </div> */}
             </div>
           </form>
         </section>

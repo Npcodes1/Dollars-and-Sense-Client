@@ -35,7 +35,11 @@ const PageNotFound = () => {
           />
           <div className="page-error-btn">
             <Link to="/login/local/failed">
-              <button className="btn" onClick={handleErrorRedirect}>
+              <button
+                className="btn"
+                type="button"
+                onClick={handleErrorRedirect}
+              >
                 Return Home
               </button>
             </Link>

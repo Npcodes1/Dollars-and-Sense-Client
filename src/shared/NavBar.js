@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../NavBar.css";
 import "../MediaQueries.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +11,27 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+const url = "http://localhost:8080";
+
 function NavBar({ user, setUser }) {
+  const navigate = useNavigate();
+  const handleLogout = ({ user, setUser }) => {
+    fetch(`${url}/logout`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result); //print success message
+        setUser({}); //set user state to empty object
+        localStorage.removeItem("user"); //remove user from localStorage
+        alert("You've successfully logged out!");
+        navigate("/"); //navigate back to home
+      })
+      .catch((error) => {
+        console.log(error); //print error message
+        navigate("/"); //navigate back to home
+      });
+  };
   return (
     <>
       <header className="top-header">
@@ -44,6 +64,9 @@ function NavBar({ user, setUser }) {
               {user.username ? (
                 <>
                   <Link to="/admin">ADMIN</Link>
+                  <Link to="" onClick={handleLogout}>
+                    LOGOUT
+                  </Link>
                 </>
               ) : (
                 <>
