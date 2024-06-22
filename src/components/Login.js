@@ -1,21 +1,24 @@
-import React, { useEffect } from "react";
+import React /*{ useEffect }*/ from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
 import { useNavigate, Link } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 
 const url = "http://localhost:8080";
+
+// const googleClientId =
+//   "601439240620-5fflt465ga9qfd7rft1h1cavr4no815g.apps.googleusercontent.com";
 
 const Login = ({ user, setUser }) => {
   //To navigate to other pages
   const navigate = useNavigate();
 
-  const responseMessage = (response) => {
-    console.log(response);
-  };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
+  // const responseMessage = (response) => {
+  //   console.log(response);
+  // };
+  // const errorMessage = (error) => {
+  //   console.log(error);
+  // };
 
   const handleLoginForm = (e) => {
     //prevent default refreshing
@@ -56,28 +59,41 @@ const Login = ({ user, setUser }) => {
       });
   };
 
-  //to get to authorization pages for Google and GitHub
-  // const login = useGoogleLogin({
-  //   onSuccess: (codeResponse) => setUser(codeResponse),
-  //   onError: (error) => console.log("Login Failed", error),
+  // // Google Authentication
+  // useEffect(() => {
+  //   fetch(`${url}/api/auth/google`, {
+  //     method: "GET",
+  //     headers: {
+  //       // Authorization: `Bearer ${}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       navigate("/");
+  //       setUser(user);
+  //     })
+  //     .catch((error) => console.log(error));
   // });
 
-  useEffect(() => {
-    fetch("https://dollars-and-sense-app.onrender.com/api/auth/google", {
-      method: "GET",
-      headers: {
-        // Authorization: `Bearer ${}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        navigate("/");
-        setUser(user);
-      })
-      .catch((error) => console.log(error));
-  });
+  // //Github Authentication
+  // useEffect(() => {
+  //   fetch(`${url}/api/auth/github`, {
+  //     method: "GET",
+  //     headers: {
+  //       // Authorization: `Bearer ${}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       navigate("/");
+  //       setUser(user);
+  //     })
+  //     .catch((error) => console.log(error));
+  // });
 
   return (
     <>
@@ -124,15 +140,15 @@ const Login = ({ user, setUser }) => {
                   Login
                 </button>
               </div>
-              <GoogleLogin
-                className="googleLogin"
+              {/* <GoogleLogin
+                clientId={googleClientId}
                 onSuccess={responseMessage}
                 onError={errorMessage}
               />
 
               <button className="auth-btn" type="submit">
-                Sign in with GitHub
-              </button>
+                Login with GitHub
+              </button> */}
 
               {/* Forgot Username/Password */}
               {/* <div className="form-link">
