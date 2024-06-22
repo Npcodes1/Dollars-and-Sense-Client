@@ -90,7 +90,8 @@ const CreditScore = () => {
               There are many ways you can check your credit score. Your credit
               card company may include your recent score on your bill statements
               or on their website or app. You can also request a copy of your
-              credit report from each of the 3 main credit bureaus once a year.
+              credit report from each of the 3 main credit bureaus once a year
+              for free.
             </p>
 
             {/* Request a Credit Score */}

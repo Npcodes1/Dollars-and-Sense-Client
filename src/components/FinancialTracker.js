@@ -191,11 +191,19 @@ const FinancialTracker = () => {
                     {history.map((item, key) => (
                       //to make sure to have a unique id when creating each list>
                       <li key={key}>
-                        <span>{item.key}</span>{" "}
-                        <span>Category: {item.category}</span>
-                        <span>Date: {item.date}</span>{" "}
-                        <span>Amount: ${item.amount}</span>
-                        <span>Note: {item.note}</span>
+                        <div>
+                          <span>Category:</span> {item.category}
+                        </div>
+                        <div>
+                          <span>Date:</span> {item.date}
+                        </div>
+                        <div>
+                          {" "}
+                          <span>Amount:</span> ${item.amount}
+                        </div>
+                        <div>
+                          <span>Note:</span> {item.note}
+                        </div>
                       </li>
                     ))}
                   </ul>

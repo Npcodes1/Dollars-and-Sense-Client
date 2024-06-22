@@ -43,8 +43,28 @@ const HomePage = () => {
               <li>
                 The median age of first time-home buyers was 33 years old in
                 2021.
+                {/* Information source link */}[
+                <a
+                  href="https://www.nar.realtor/research-and-statistics/research-reports/highlights-from-the-profile-of-home-buyers-and-sellers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  1
+                </a>
+                ]
               </li>
-              <li>Now that age has risen to 36 years old.</li>
+              <li>
+                Now that age has risen to 36 years old.
+                {/* Information source link */}[
+                <a
+                  href="https://www.nar.realtor/research-and-statistics/research-reports/highlights-from-the-profile-of-home-buyers-and-sellers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  1
+                </a>
+                ]
+              </li>
             </ul>
             {/* To add the pie chart to the page. It's wrapped in a div container for responsiveness. */}
             <PieChart />

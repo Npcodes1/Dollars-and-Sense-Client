@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../Pages.css";
 import "../MediaQueries.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 
 const url = "http://localhost:8080";
@@ -63,8 +63,12 @@ const Login = ({ user, setUser }) => {
   // });
 
   useEffect(() => {
-    fetch(`${url}/auth/google`, {
+    fetch("https://dollars-and-sense-app.onrender.com/api/auth/google", {
       method: "GET",
+      headers: {
+        // Authorization: `Bearer ${}`,
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => response.json())
       .then((result) => {
@@ -110,13 +114,21 @@ const Login = ({ user, setUser }) => {
                 />
               </div>
 
+              <div className="admin">
+                <Link to="/admin">ADMIN</Link>
+              </div>
+
               {/* Submit Button */}
               <div className="form-submit">
                 <button className="btn" type="submit">
                   Login
                 </button>
               </div>
-              <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+              <GoogleLogin
+                className="googleLogin"
+                onSuccess={responseMessage}
+                onError={errorMessage}
+              />
 
               <button className="auth-btn" type="submit">
                 Sign in with GitHub

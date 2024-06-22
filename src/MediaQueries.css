@@ -75,6 +75,21 @@
     padding: 4px 8px;
     font-size: 0.8em;
   }
+
+  .history-list ul {
+    padding-left: 0;
+    overflow-y: auto;
+  }
+
+  .history-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .history-list li div {
+    padding: 0;
+  }
 }
 
 /* IPad/Tablet */

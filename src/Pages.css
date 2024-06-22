@@ -180,8 +180,26 @@
   color: var(--caput-mortuum);
 }
 
+.history-list {
+  padding-left: 0;
+  width: 100%;
+}
+
+.history-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem;
+  border-bottom: 2px solid var(--cinereous-ashy-grey);
+}
+
 .history-list li span {
-  margin: 0.4rem;
+  font-weight: 700;
+}
+
+.history-list li div {
+  padding: 0 2rem;
 }
 
 /* Forgot Login Page */
@@ -266,4 +284,14 @@ tr:nth-child(even) {
 .table-row td {
   flex: 1;
   padding: 0.5rem;
+}
+
+.admin {
+  text-align: center;
+  color: var(--indigo-dye);
+  margin-top: 0.5rem;
+}
+
+.admin a:visited {
+  color: inherit;
 }
